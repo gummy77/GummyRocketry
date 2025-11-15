@@ -22,6 +22,7 @@ import org.gumrockets.payload.UpdateStagePayload;
 
 public class StageEntity extends Entity {
     private RocketStage stage;
+    private Vec3d prevVelocity = Vec3d.ZERO;
 
     public static final EntitySettings settings = new EntitySettings(
             "stage_entity",
@@ -42,14 +43,25 @@ public class StageEntity extends Entity {
             networkUpdateData();
         }
 
-        if((verticalCollision || horizontalCollision || groundCollision) && getVelocity().length() > 0.5f) {
-            this.kill();
-            this.setVelocity(Vec3d.ZERO);
-        }
-
         this.addVelocity(new Vec3d(0, -0.05f, 0));
         this.setVelocity(this.getVelocity().multiply(0.99f));
         this.move(MovementType.SELF, this.getVelocity());
+
+        super.tick();
+
+        Vec3d velocityChange = prevVelocity.subtract(this.getVelocity());
+        if(velocityChange.lengthSquared() > 1) {
+            getWorld().createExplosion(
+                    this,
+                    getX(), getY(), getZ(),
+                    (float) (Math.sqrt(velocityChange.length()) * getStage().getHeight()) * 0.25f,
+                    (Math.sqrt(velocityChange.length()) > 2.5),
+                    World.ExplosionSourceType.BLOCK
+            );
+            this.kill();
+        }
+
+        prevVelocity = getVelocity();
     }
 
     @Override

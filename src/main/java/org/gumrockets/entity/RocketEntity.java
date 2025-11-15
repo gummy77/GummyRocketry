@@ -7,6 +7,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -17,8 +19,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionBehavior;
 import org.gumrockets.component.Rocket;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.component.RocketStage;
@@ -26,12 +32,14 @@ import org.gumrockets.component.RocketState;
 import org.gumrockets.payload.UpdateRocketPayload;
 import org.gumrockets.registry.EntityRegistry;
 import org.joml.Quaternionf;
+import org.joml.Quaternionfc;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
 
 public class RocketEntity extends Entity {
     private Rocket rocket;
+    private Vec3d prevVelocity = Vec3d.ZERO;
 
     public static final EntitySettings settings = new EntitySettings(
             "rocket_entity",
@@ -64,6 +72,8 @@ public class RocketEntity extends Entity {
                 if(this.getRocket().getState().getLaunchTimer() <= 0) {
                     this.rocket.getState().setLaunchState(RocketState.LaunchState.LAUNCHING);
                     this.move(MovementType.SELF, new Vec3d(0, 0.1f, 0));
+                    this.setVelocity(0, 0.1, 0);
+                    setRotation(RotationAxis.POSITIVE_Y.rotation(0));
                 } else {
                     this.rocket.getState().setLaunchTimer(this.getRocket().getState().getLaunchTimer() - 0.05f); // 20 ticks/second -> 0.05s per tick
                 }
@@ -75,22 +85,27 @@ public class RocketEntity extends Entity {
             }
             case COASTING -> {
                 this.updateRotation();
-                if((verticalCollision || horizontalCollision || groundCollision) && getVelocity().length() > 0.5f) {
-                    this.getRocket().getState().setLaunchState(RocketState.LaunchState.IDLE);
-                }
             }
         }
 
-        if((verticalCollision || horizontalCollision || groundCollision) && getVelocity().length() > 0.2f) {
-            this.kill();
-            //explode
-        }
-
         this.addVelocity(new Vec3d(0, -0.05f, 0));
-        this.setVelocity(this.getVelocity().multiply(0.99f));
         this.move(MovementType.SELF, this.getVelocity());
 
         super.tick();
+
+        Vec3d velocityChange = prevVelocity.subtract(this.getVelocity());
+        if(velocityChange.lengthSquared() > 1) {
+            getWorld().createExplosion(
+                    this,
+                    getX(), getY(), getZ(),
+                    (float) (Math.sqrt(velocityChange.length()) * getRocket().getHeight()) * 0.25f,
+                    (Math.sqrt(velocityChange.length()) > 2.5),
+                    World.ExplosionSourceType.BLOCK
+            );
+            this.kill();
+        }
+
+        prevVelocity = getVelocity();
     }
 
     private void updateRotation() {
@@ -101,7 +116,7 @@ public class RocketEntity extends Entity {
 
         Quaternionf newRotation = new Quaternionf(rotation);
 
-        newRotation.slerp(velocityRotation, 0.01f);
+        newRotation.slerp(velocityRotation, 0.1f);
 
         setRotation(newRotation);
     }
@@ -167,8 +182,33 @@ public class RocketEntity extends Entity {
         System.out.println((this.getRocket() != null ? "Rocket Data" : "No Rocket Data") + (getWorld().isClient() ? " on Client" : " on Server"));
 
         if(this.getRocket() == null || this.getRocket().getState() == null) return ActionResult.FAIL;
-        if(this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE) {
+
+        if(this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE && this.getRocket().getState().getLaunchTimer() > 0) {
             this.getRocket().getState().setLaunchState(RocketState.LaunchState.IGNITION);
+        } else {
+            return ActionResult.FAIL;
+        }
+
+        if(getWorld() instanceof ServerWorld) {
+            for (int i = 0; i <= this.getRocket().getStages().size() - 1; i++) {
+                RocketStage stage = this.getRocket().getStages().get(i);
+
+                System.out.println("Stage: " + i);
+
+                for (int j = 0; j <= stage.getParts().size() - 1; j++) {
+                    RocketPart part = stage.getParts().get(j);
+
+                    System.out.println(part.getType().toString());
+                }
+
+                System.out.println(" ");
+
+                System.out.println("Fuel: " + stage.getBurnTimeRemaining() + "s");
+                System.out.println("Thrust: " + stage.getParts().getFirst().getEngineComponent().getPower() + "N");
+                System.out.println("Mass: " + stage.getMass() + "kg");
+
+                System.out.println(" ");
+            }
         }
 
         return super.interact(player, hand);

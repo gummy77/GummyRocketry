@@ -12,8 +12,6 @@ public class Rocket {
     private RocketState state;
 
     private float cachedWidth = 0;
-    private final float cachedHeight = 0;
-    private float cachedMass = 0;
 
     public Rocket(ArrayList<RocketStage> stages) {
         this.stages = stages;
@@ -59,15 +57,12 @@ public class Rocket {
     }
 
     public float getMass() {
-        if (this.cachedMass != 0) return this.cachedMass;
-
         int mass = 0;
         int stageCounter = Math.min(this.state.getCurrentStage(), this.stages.size()-1);
         for (int i = stageCounter; i < this.stages.size(); i++) {
             RocketStage stage = this.stages.get(i);
             mass += stage.getMass();
         }
-        this.cachedMass = mass;
         return mass;
     }
 
