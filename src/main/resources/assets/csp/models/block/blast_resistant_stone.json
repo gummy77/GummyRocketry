@@ -1,0 +1,7 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"0": "csp:block/blast_resistant_stone",
+		"particle": "csp:block/blast_resistant_stone"
+	}
+}

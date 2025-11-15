@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "csp:block/shale_oil_ore"
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IgI",
+    "IgI",
+    "IgI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:bamboo"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "csp:rocket/bamboo/body_segment",
+    "count": 1
+  }
+}

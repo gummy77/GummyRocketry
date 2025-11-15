@@ -1,0 +1,49 @@
+{
+  "name": "Getting an Upgrade!",
+  "icon": "minecraft:oak_wood",
+  "advancement": "csp:launch_firework_rocket",
+  "category": "csp:basic_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Lets get started creating our very first rocket. A rocket made of wood! We will need some items: $(li) Wood (any variant)$(li) Gunpowder $(li) Iron Ingot $(br2)Once you have collected all these items, we can create a wooden rocket, similar to our bamboo rocket. The recipes are on the right hand side."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:rocket/wooden/nose_cone",
+      "recipe2": "csp:rocket/wooden/body_segment"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:rocket/wooden/exhaust",
+      "recipe2": "csp:iron_nozzle"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:wooden_fin",
+      "text": "$(br2)After you have all these items in your inventory, you can arrange them as shown to create a basic wooden rocket."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Basic Wooden Rocket",
+      "multiblock": {
+        "mapping" : {
+          "C": "csp:rocket/wooden/nose_cone",
+          "B": "csp:rocket/wooden/body_segment",
+          "E": "csp:rocket/wooden/exhaust"
+        },
+        "pattern": [
+          [" C "],
+          [" B "],
+          ["0E "]
+        ],
+        "symmetrical": true
+      },
+      "enable_visualize": false
+    },
+    {
+      "type": "patchouli:text",
+      "text": "That is it for this book entry, you can read the previous entries here: $(l:fireworks/getting_first_rocket) $(li) The first rockets. $(/l) $(l:bamboo_rocket/start_entry) $(li) Creating a bamboo rocket.$(/l)$(l:bamboo_rocket/launching_rocket)$(li) Launching our rocket $(/l)"
+    }
+  ]
+}

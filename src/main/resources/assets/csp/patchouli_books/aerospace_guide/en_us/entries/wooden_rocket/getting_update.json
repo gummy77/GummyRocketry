@@ -1,0 +1,36 @@
+{
+  "name": "Bigger is better",
+  "icon": "minecraft:oak_slab",
+  "advancement": "csp:wood_rocket_adv",
+  "category": "csp:basic_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Congratulations on your first wooden rocket. You are making good progress. Up until now, your rockets have been extremely basic, but did you know you can create rockets from multiple body pieces. $(br)Have a go creating a rocket like the one to the right!"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Large Wooden Rocket",
+      "multiblock": {
+        "mapping" : {
+          "C": "csp:rocket/wooden/nose_cone",
+          "B": "csp:rocket/wooden/body_segment",
+          "E": "csp:rocket/wooden/exhaust"
+        },
+        "pattern": [
+          [" C "],
+          [" B "],
+          [" B "],
+          ["0B "],
+          [" E "]
+        ],
+        "symmetrical": true
+      },
+      "enable_visualize": false
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Wood is not the only "
+    }
+  ]
+}

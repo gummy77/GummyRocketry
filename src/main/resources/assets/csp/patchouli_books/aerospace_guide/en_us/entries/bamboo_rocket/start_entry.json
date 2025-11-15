@@ -1,0 +1,49 @@
+{
+  "name": "Getting Started",
+  "icon": "minecraft:bamboo",
+  "advancement": "csp:wood_rocket_adv",
+  "category": "csp:basic_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Lets create a rocket made out of bamboo! In order to begin, we first need to collect some items: $(li) Bamboo (any variant)$(li) Gunpowder $(li) Iron Ingot $(br2)Once you have collected all these items, we can get started creating our first rocket. The recipes are on the right hand side."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:rocket/bamboo/nose_cone",
+      "recipe2": "csp:rocket/bamboo/body_segment"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:rocket/bamboo/exhaust",
+      "recipe2": "csp:iron_nozzle"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:bamboo_fin",
+      "text": "$(br2)Once you have crafted all of these items, arrange them as shown on the next page, to create a very basic rocket!"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Basic Bamboo Rocket",
+      "multiblock": {
+        "mapping" : {
+          "C": "csp:rocket/bamboo/nose_cone",
+          "B": "csp:rocket/bamboo/body_segment",
+          "E": "csp:rocket/bamboo/exhaust"
+        },
+        "pattern": [
+          [" C "],
+          [" B "],
+          ["0E "]
+        ],
+        "symmetrical": true
+      },
+      "enable_visualize": false
+    },
+    {
+      "type": "patchouli:text",
+      "text": "That is it for this book entry, you can read the previous entry here: $(l:fireworks/getting_first_rocket) $(li) The first rockets. $(/l)"
+    }
+  ]
+}

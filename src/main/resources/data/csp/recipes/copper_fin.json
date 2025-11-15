@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "c  ",
+    "cc "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "csp:copper_fin",
+    "count": 2
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "csp:block/rocket/copper/body_segment" }
+  }
+}

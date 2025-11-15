@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cgc",
+    "cgc",
+    "fnf"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    },
+    "f": {
+      "item": "csp:copper_fin"
+    },
+    "n": {
+      "item": "csp:iron_nozzle"
+    }
+  },
+  "result": {
+    "item": "csp:rocket/copper/exhaust",
+    "count": 1
+  }
+}

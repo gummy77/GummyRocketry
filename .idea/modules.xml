@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GummyRocketry.client.iml" filepath="$PROJECT_DIR$/.idea/modules/GummyRocketry.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GummyRocketry.main.iml" filepath="$PROJECT_DIR$/.idea/modules/GummyRocketry.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GummyRocketry.test.iml" filepath="$PROJECT_DIR$/.idea/modules/GummyRocketry.test.iml" />
+    </modules>
+  </component>
+</project>

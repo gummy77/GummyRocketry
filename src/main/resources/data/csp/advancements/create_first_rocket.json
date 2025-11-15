@@ -1,0 +1,37 @@
+{
+  "parent": "csp:launch_firework_rocket",
+  "display": {
+    "icon": {
+      "item": "csp:rocket/wooden/exhaust"
+    },
+    "title": {
+      "translate": "advancements.csp.create_first_rocket.title"
+    },
+    "description": {
+      "translate": "advancements.csp.create_first_rocket.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "csp:rocket/wooden/body_segment",
+              "csp:rocket/wooden/nose_cone",
+              "csp:rocket/wooden/exhaust",
+              "csp:rocket/bamboo/body_segment",
+              "csp:rocket/bamboo/nose_cone",
+              "csp:rocket/bamboo/exhaust"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

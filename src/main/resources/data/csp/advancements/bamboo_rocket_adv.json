@@ -1,0 +1,33 @@
+{
+  "parent": "csp:create_first_rocket",
+  "display": {
+    "icon": {
+      "item": "csp:rocket/bamboo/nose_cone"
+    },
+    "title": {
+      "translate": "advancements.csp.bamboo_rocket_adv.title"
+    },
+    "description": {
+      "translate": "advancements.csp.bamboo_rocket_adv.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "csp:bamboo_rocket_advancement",
+      "conditions": {
+        "item": {
+          "items": [
+            "csp:launchkit"
+          ]
+        },
+        "entity": {
+          "type": "csp:rocket_entity"
+        }
+      }
+    }
+  }
+}

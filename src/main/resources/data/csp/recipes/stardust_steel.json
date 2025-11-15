@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_ingot"
+  },
+  "addition" : {
+    "item" : "csp:stardust"
+  },
+  "result": {
+    "item": "csp:stardust_steel",
+    "count": 1
+  }
+}

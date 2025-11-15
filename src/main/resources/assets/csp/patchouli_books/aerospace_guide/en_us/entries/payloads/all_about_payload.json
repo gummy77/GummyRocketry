@@ -1,0 +1,26 @@
+{
+  "name": "Rocket Payloads!",
+  "icon": "csp:payloads/default_payload",
+  "advancement": "csp:wood_rocket_adv",
+  "category": "csp:semi_advanced_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Rockets are cool and all, but wouldn't it be nice to harness the power of space? We can have our rockets bring us back items, by installing payloads into them before we launch them. These payloads allow us to harvest materials from space (more on that later)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:payload/default_payload",
+      "text": "The Dummy Payload. As its name suggests, it will not be collecting any items from space for you. The dummy payload, however, will allow your nose cone to return to this over world!"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Once you have launched your rocket with a payload, you need to retrieve the payload. Frantically searching for the payload will eventually return results, but why don't we make it easier on ourselves, and use a Payload Compass."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:payload_compass",
+      "text": "$(br2)The Payload Compass will always point to the nearest payload, making finding your payload even easier."
+    }
+  ]
+}

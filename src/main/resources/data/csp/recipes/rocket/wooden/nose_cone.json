@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " w ",
+    "w w",
+    "w w"
+  ],
+  "key": {
+    "w": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "csp:rocket/wooden/nose_cone",
+    "count": 1
+  }
+}

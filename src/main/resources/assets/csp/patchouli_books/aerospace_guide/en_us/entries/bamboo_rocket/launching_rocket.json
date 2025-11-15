@@ -1,0 +1,41 @@
+{
+  "name": "Launch your first Rocket",
+  "icon": "minecraft:scaffolding",
+  "advancement": "csp:create_first_rocket",
+  "category": "csp:basic_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Now that you have created your very first rocket, we need to prepare to launch it. $(br2)To start, we need to take our current rocket and assemble it into one whole piece (as you may have noticed, each part of the rocket is all individual pieces). This can be done, by using an assembler item. Try crafting one as shown on the next page."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:basic_assembler",
+      "text": "Some things to note about the assembler. When you use the assembler, if your rocket breaks, the shape you placed it in was invalid. The assembler doesn't launch your rocket, it only assembles all the pieces together to prepare for launch."
+    },
+    {
+      "type": "patchouli:crafting",
+      "text": "Now that we have assembled our rocket, we need to send it off into space! To do this, we will need a Launch Kit. The most basic of Launch Kits is the Wooden Launch Kit. It is a simple box with a fuse wire that will send our rocket into space. The crafting recipe is above.",
+      "recipe": "csp:launchkit"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "csp:fuse",
+      "text": "You may have noticed you need to craft a fuse, to use in the crafting of the Launch Kit. The recipe for the fuse is above."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Great! We have now created a launch kit, lets launch our rocket! Approach your assembled rocket with the Launch Kit, and use the Launch Kit on the Rocket. You will see a fuse wire attach. After this, you want to back off from the rocket, about 8 or more blocks. $(br2)When you have reached a safe distance, use the launch kit again, and your rocket should fly off to space."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Lift Off!",
+      "images": [
+        "csp:images/attach_fuse.png",
+        "csp:images/wood_launch.png"
+      ],
+      "border": true,
+      "text": "The images above show the launch process."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "The First Rockets",
+  "icon": "minecraft:writable_book",
+  "advancement": "csp:root",
+  "category": "csp:basic_rocketry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Rockets weren't always the space-fairing behemoths we know of today. In fact, Rocketry has very humble origins, Ancient China. The Chinese filled tubes with gunpowder (a very early iteration for fireworks). $(br2)In Minecraft, we can also create similar rockets. Create a basic firework as shown to the right to get started."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:firework_rocket_simple",
+      "text": "$(br2)After you have created this rocket, give it a launch by pointing your cross-hair at the ground, and while holding the item use the action button. "
+    },
+    {
+      "type": "patchouli:text",
+      "text": "That firework wasn't very exciting, there was no real shape to it. If we add a firework star, we can make the firework appear in different shapes. The Following Firework stars are included in the game, these can be found $(l:https://minecraft.wiki/w/Firework_Star)here.$(/l) $(br2)If we want, we can also add more gunpowder when creating a rocket, to make its flight duration longer."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:firework_rocket",
+      "scale": 1.5,
+      "offset": -0.4
+    }
+  ]
+}

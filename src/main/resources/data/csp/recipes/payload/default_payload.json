@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "www",
+    "s s",
+    " i "
+  ],
+  "key": {
+    "w": {
+      "tag": "minecraft:wool"
+    },
+    "s": {
+      "item": "minecraft:string"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "csp:payloads/default_payload",
+    "count": 1
+  }
+}

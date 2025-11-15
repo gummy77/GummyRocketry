@@ -1,0 +1,49 @@
+{
+  "wooden_rocket_launch": {
+    "subtitle": "sound.csp.wooden_rocket_launch",
+    "sounds": [
+      "csp:wooden_rocket_launch"
+    ]
+  },
+  "basic_assemble": {
+    "subtitle": "sound.csp.basic_assemble",
+    "sounds": [
+      "csp:basic_assemble"
+    ]
+  },
+
+  "gneep_death": {
+    "subtitle": "sound.csp.gneep_death",
+    "sounds": [
+      "csp:entity/gneep/death/death1",
+      "csp:entity/gneep/death/death2",
+      "csp:entity/gneep/death/death3",
+      "csp:entity/gneep/death/death4"
+    ]
+  },
+  "gneep_hurt": {
+    "subtitle": "sound.csp.gneep_hurt",
+    "sounds": [
+      "csp:entity/gneep/hurt/hurt1",
+      "csp:entity/gneep/hurt/hurt2",
+      "csp:entity/gneep/hurt/hurt3",
+      "csp:entity/gneep/hurt/hurt4",
+      "csp:entity/gneep/hurt/hurt5",
+      "csp:entity/gneep/hurt/hurt6"
+    ]
+  },
+  "gneep_idle": {
+    "subtitle": "sound.csp.gneep_idle",
+    "sounds": [
+      "csp:entity/gneep/idle/idle1",
+      "csp:entity/gneep/idle/idle2",
+      "csp:entity/gneep/idle/idle3",
+      "csp:entity/gneep/idle/idle4",
+      "csp:entity/gneep/idle/idle5",
+      "csp:entity/gneep/idle/idle6",
+      "csp:entity/gneep/idle/idle7",
+      "csp:entity/gneep/idle/idle8",
+      "csp:entity/gneep/idle/idle9"
+    ]
+  }
+}

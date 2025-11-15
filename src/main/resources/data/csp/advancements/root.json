@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:gunpowder"
+    },
+    "title": {
+      "translate": "advancements.csp.root.title"
+    },
+    "description": {
+      "translate": "advancements.csp.root.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gunpowder"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": [
+      "csp:grant_book_on_achievement"
+    ]
+  }
+}
