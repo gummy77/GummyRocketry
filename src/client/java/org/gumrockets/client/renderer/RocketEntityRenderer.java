@@ -2,7 +2,6 @@ package org.gumrockets.client.renderer;
 
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.EntityRenderer;

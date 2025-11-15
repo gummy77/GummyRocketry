@@ -109,9 +109,6 @@ public class RocketEntity extends Entity {
     private void setRotation(Quaternionf rotation) {
         this.getRocket().getState().setRotation(rotation);
     }
-    private void addRotation(Quaternionf rotation) {
-        this.getRocket().getState().setRotation(this.getRocket().getState().getRotation().add(rotation));
-    }
 
     private void tickStages() {
         if (this.getRocket().getCurrentStage() == null) {

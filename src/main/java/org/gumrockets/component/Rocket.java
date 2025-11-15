@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rocket {
-    private ArrayList<RocketStage> stages;
+    private final ArrayList<RocketStage> stages;
     private RocketState state;
 
     private float cachedWidth = 0;
-    private float cachedHeight = 0;
+    private final float cachedHeight = 0;
     private float cachedMass = 0;
 
     public Rocket(ArrayList<RocketStage> stages) {

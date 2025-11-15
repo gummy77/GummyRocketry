@@ -3,17 +3,11 @@ package org.gumrockets.item;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.component.ComponentMap;
-import net.minecraft.component.ComponentMapImpl;
-import net.minecraft.component.ComponentType;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -25,6 +19,7 @@ import org.gumrockets.registry.ComponentRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RocketPartBlockItem extends BlockItem {
     public RocketPartBlockItem(Block block, Settings settings) {
@@ -68,7 +63,7 @@ public class RocketPartBlockItem extends BlockItem {
         BlockEntity blockEntity = world.getBlockEntity(pos);
 
         if (blockEntity instanceof RocketPartBlockEntity) {
-            ((RocketPartBlockEntity) blockEntity).setRocketPart(stack.get(ComponentRegistry.ROCKET_PART_COMPONENT_TYPE).clone());
+            ((RocketPartBlockEntity) blockEntity).setRocketPart(Objects.requireNonNull(stack.get(ComponentRegistry.ROCKET_PART_COMPONENT_TYPE)).clone());
         }
 
         return super.postPlacement(pos, world, player, stack, state);

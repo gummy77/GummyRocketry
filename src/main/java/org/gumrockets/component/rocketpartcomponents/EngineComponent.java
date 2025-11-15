@@ -2,15 +2,11 @@ package org.gumrockets.component.rocketpartcomponents;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.command.argument.ParticleEffectArgumentType;
 import net.minecraft.particle.*;
-import net.minecraft.registry.Registries;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.entity.RocketEntity;
-
-import java.util.ArrayList;
 
 public class EngineComponent {
     private final float power;

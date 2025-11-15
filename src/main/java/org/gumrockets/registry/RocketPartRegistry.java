@@ -53,8 +53,6 @@ public class RocketPartRegistry {
         Item item = Registry.register(Registries.ITEM, identifier, new RocketPartBlockItem(rocketPart.getBlock().getBlock(), settings));
 
         // add to itemgroup (creative tab)
-        ItemGroupEvents.modifyEntriesEvent(ItemRegistry.CSP_ITEM_GROUP_KEY).register(itemGroup -> {
-            itemGroup.add(item);
-        });
+        ItemGroupEvents.modifyEntriesEvent(ItemRegistry.CSP_ITEM_GROUP_KEY).register(itemGroup -> itemGroup.add(item));
     }
 }

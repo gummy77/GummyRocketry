@@ -23,7 +23,7 @@ import org.gumrockets.registry.EntityRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Currency;
+import java.util.Objects;
 
 public class RocketPartBlockEntity extends BlockEntity {
     private RocketPart rocketPart;
@@ -41,6 +41,7 @@ public class RocketPartBlockEntity extends BlockEntity {
     }
 
     public void startAssembly(RocketPart.PartMaterial maxMaterial, BlockPos selectedBlock) {
+        assert world != null;
         // find base block (lowest block)
         BlockPos lowestBlock = getLowestBlock(selectedBlock);
         BlockPos currentBlock = lowestBlock;
@@ -56,20 +57,21 @@ public class RocketPartBlockEntity extends BlockEntity {
         for (RocketStage stage : stages) {
             offset += stage.getHeight();
         }
+        assert currentBlock != null;
         currentBlock = currentBlock.up(offset);
 
-        offset = stages.get(stages.size()-1).getParts().size();
+        offset = stages.getLast().getParts().size();
 
         // add Payload (if there)
-        if(getPartAtPos(currentBlock).getType() == RocketPart.PartType.PAYLOAD) {
-            stages.get(stages.size()-1).addPart(getPartAtPos(currentBlock).setOffset(new Vec3d(0, offset, 0)));
+        if(Objects.requireNonNull(getPartAtPos(currentBlock)).getType() == RocketPart.PartType.PAYLOAD) {
+            stages.getLast().addPart(Objects.requireNonNull(getPartAtPos(currentBlock)).setOffset(new Vec3d(0, offset, 0)));
             currentBlock = currentBlock.up();
             offset++;
         }
 
         // add nose cone
-        if(getPartAtPos(currentBlock).getType() == RocketPart.PartType.NOSE) {
-            stages.get(stages.size()-1).addPart(getPartAtPos(currentBlock).setOffset(new Vec3d(0, offset, 0)));
+        if(Objects.requireNonNull(getPartAtPos(currentBlock)).getType() == RocketPart.PartType.NOSE) {
+            stages.getLast().addPart(Objects.requireNonNull(getPartAtPos(currentBlock)).setOffset(new Vec3d(0, offset, 0)));
             currentBlock = currentBlock.up();
             offset++;
         } else {
@@ -104,6 +106,7 @@ public class RocketPartBlockEntity extends BlockEntity {
     }
 
     private RocketPart getPartAtPos(BlockPos pos) {
+        assert world != null;
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if(blockEntity instanceof RocketPartBlockEntity rocketPartBlockEntity) {
             return rocketPartBlockEntity.getRocketPart();
@@ -129,6 +132,9 @@ public class RocketPartBlockEntity extends BlockEntity {
         ArrayList<RocketStage> stages = new ArrayList<>();
 
         RocketPart currentPart = getPartAtPos(currentPos);
+
+        assert currentPart != null;
+
         while (currentPart.getType() == RocketPart.PartType.ENGINE){
             int offset = 0;
             RocketStage currentStage = new RocketStage();
@@ -137,7 +143,7 @@ public class RocketPartBlockEntity extends BlockEntity {
             currentPart = getPartAtPos(currentPos);
             offset++;
 
-            while (currentPart.getType() == RocketPart.PartType.FUEL || currentPart.getType() == RocketPart.PartType.COUPLER) {
+            while (Objects.requireNonNull(currentPart).getType() == RocketPart.PartType.FUEL || currentPart.getType() == RocketPart.PartType.COUPLER) {
                 if(currentPart.getType() == RocketPart.PartType.COUPLER) {
 
                     // TODO add boosters

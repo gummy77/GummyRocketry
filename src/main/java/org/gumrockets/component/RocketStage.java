@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RocketStage {
-    private ArrayList<RocketPart> parts;
+    private final ArrayList<RocketPart> parts;
     private float burnTimeRemaining;
 
     private float cachedWidth = 0;
@@ -46,7 +46,7 @@ public class RocketStage {
     public int getHeight() {
         int height = 0;
         for (RocketPart rocketPart : parts) {
-            height += 1;
+            height += 1; // TODO fix this
         }
         return height;
     }

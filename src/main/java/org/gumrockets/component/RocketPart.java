@@ -9,7 +9,7 @@ import org.gumrockets.component.rocketpartcomponents.FuelComponent;
 
 import java.util.Optional;
 
-public class RocketPart implements Cloneable{
+public class RocketPart implements Cloneable {
     private final BlockState block;
     private final PartMaterial material;
     private final PartType type;
@@ -98,7 +98,7 @@ public class RocketPart implements Cloneable{
         private EngineComponent engineComponent = null;
         private FuelComponent fuelComponent = null;
 
-        private Vec3d offset = new Vec3d(0,0,0);
+        private final Vec3d offset = new Vec3d(0,0,0);
 
         public RocketPartBuilder(BlockState block, PartMaterial partMaterial, PartType partType, int width, int mass) {
             this.block = block;
@@ -128,14 +128,14 @@ public class RocketPart implements Cloneable{
         FUEL,
         COUPLER,
         ENGINE,
-        PAYLOAD;
+        PAYLOAD
     }
 
     public enum PartMaterial {
         BAMBOO(),
         WOOD(),
         COPPER(),
-        IRON();
+        IRON()
     }
 
     @Override
