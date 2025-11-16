@@ -3,6 +3,7 @@ package org.gumrockets.component;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.dynamic.Codecs;
+import org.gumrockets.component.rocketpartcomponents.EngineComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class RocketStage {
     private float burnTimeRemaining;
 
     private float cachedWidth = 0;
-
+    private float cachedThrust = 0;
     private float cachedMass = 0;
 
     public RocketStage() {
@@ -68,6 +69,19 @@ public class RocketStage {
         }
         this.cachedMass = mass;
         return this.cachedMass;
+    }
+
+    public float getThrust() {
+        if (this.cachedThrust != 0) return this.cachedThrust;
+        float thrust = 0;
+        for (RocketPart part : this.getParts()) {
+            EngineComponent engineComponent = part.getEngineComponent();
+            if(engineComponent != null) {
+                thrust += part.getEngineComponent().getPower();
+            }
+        }
+        this.cachedThrust = thrust;
+        return this.cachedThrust;
     }
 
     public static Codec<RocketStage> CODEC = RecordCodecBuilder.create(builder ->

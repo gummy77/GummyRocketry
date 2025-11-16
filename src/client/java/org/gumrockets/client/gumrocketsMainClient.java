@@ -1,6 +1,7 @@
 package org.gumrockets.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import org.gumrockets.client.registry.ParticleRegistry;
 
 public class gumrocketsMainClient implements ClientModInitializer {
 
@@ -8,5 +9,6 @@ public class gumrocketsMainClient implements ClientModInitializer {
     public void onInitializeClient() {
         org.gumrockets.client.ClientNetworkHandler.initialize();
         org.gumrockets.client.registry.EntityRendererRegistry.initializeRegistry();
+        ParticleRegistry.initializeRegistry();
     }
 }

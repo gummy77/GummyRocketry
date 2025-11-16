@@ -66,6 +66,13 @@ public class Rocket {
         return mass;
     }
 
+    public float getTWR() {
+        float mass = getMass();
+        float thrust = this.getCurrentStage().getThrust();
+
+        return thrust / mass;
+    }
+
     public RocketStage getCurrentStage() {
         if(this.state.getCurrentStage() > this.stages.size()-1) return null;
         return this.stages.get(this.state.getCurrentStage());

@@ -29,14 +29,14 @@ public class RocketPartRegistry {
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.FUEL,
                             6, 100
-                    ).addFuelComponent(new FuelComponent(3f, 1f, 1f, 1f, FuelComponent.FuelType.SOLID)).build());
+                    ).addFuelComponent(new FuelComponent(5f, 1f, 1f, 1f, FuelComponent.FuelType.SOLID)).build());
             registerRocketPart("rocket/wooden/motor",
                     new RocketPart.RocketPartBuilder(
                             BlockRegistry.WOODEN_MOTOR.getDefaultState(),
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.ENGINE,
                             6, 50
-                    ).addEngineComponent(new EngineComponent(400f, 1, ParticleTypes.LARGE_SMOKE)).build());
+                    ).addEngineComponent(new EngineComponent(400f, 1, ParticleRegistry.EXHAUST)).build());
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }

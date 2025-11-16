@@ -14,14 +14,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.RotationAxis;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
@@ -78,13 +77,23 @@ public class RocketEntity extends Entity {
                     this.rocket.getState().setLaunchTimer(this.getRocket().getState().getLaunchTimer() - 0.05f); // 20 ticks/second -> 0.05s per tick
                 }
                 this.getRocket().getState().setRotation(this.getRocket().getState().getRotation().rotateLocalX(0.00001f));
+                this.tickStages(true);
             }
             case LAUNCHING -> {
                 this.updateRotation();
-                this.tickStages();
+                this.tickStages(false);
             }
             case COASTING -> {
                 this.updateRotation();
+
+                if(Math.abs(getVelocity().y) <= 0.1) {
+                    System.out.println("peaking: " + getPos().y);
+                }
+
+                getWorld().addImportantParticle(ParticleTypes.CLOUD, true,
+                        getPos().x, getPos().y, getPos().z,
+                        0, 0, 0
+                );
             }
         }
 
@@ -125,7 +134,7 @@ public class RocketEntity extends Entity {
         this.getRocket().getState().setRotation(rotation);
     }
 
-    private void tickStages() {
+    private void tickStages(boolean isIgnition) {
         if (this.getRocket().getCurrentStage() == null) {
             this.getRocket().getState().setLaunchState(RocketState.LaunchState.COASTING);
             return;
@@ -134,7 +143,7 @@ public class RocketEntity extends Entity {
         if(this.getRocket().getCurrentStage().getBurnTimeRemaining() <= 0) {
             this.stage();
         } else {
-            this.tickEngines();
+            this.tickEngines(isIgnition);
         }
     }
 
@@ -159,19 +168,21 @@ public class RocketEntity extends Entity {
 
                 getWorld().spawnEntity(stageEntity);
             }
-            this.addForce(1, new Vec3d(0, 0, 0));
+            this.addForce(1);
             this.move(MovementType.SELF, new Vec3d(0, this.getRocket().getCurrentStage().getHeight() + 0.1f, 0)); // TODO when doing rotations fix this
         }
         this.getRocket().getState().stage();
     }
 
-    private void tickEngines() {
+    private void tickEngines(boolean isIgnition) {
         ArrayList<RocketPart> parts = this.getRocket().getCurrentStage().getParts();
 
         for (RocketPart part : parts) {
             if(part.getEngineComponent() != null) {
-                part.getEngineComponent().tick(getWorld(), this, part);
-                this.getRocket().getCurrentStage().setBurnTimeRemaining(this.getRocket().getCurrentStage().getBurnTimeRemaining() - part.getEngineComponent().getFuelConsumption() * 0.05f); // 20 ticks/second -> 0.05s per tick
+                part.getEngineComponent().tick(getWorld(), this, part, isIgnition);
+                if(!isIgnition) {
+                    this.getRocket().getCurrentStage().setBurnTimeRemaining(this.getRocket().getCurrentStage().getBurnTimeRemaining() - part.getEngineComponent().getFuelConsumption() * 0.05f); // 20 ticks/second -> 0.05s per tick
+                }
             }
         }
     }
@@ -209,6 +220,7 @@ public class RocketEntity extends Entity {
 
                 System.out.println(" ");
             }
+            System.out.println("TWR: " + getRocket().getTWR());
         }
 
         return super.interact(player, hand);
@@ -223,12 +235,16 @@ public class RocketEntity extends Entity {
         return super.handleAttack(attacker);
     }
 
-    public void addForce(float force, Vec3d offset) {
+    public void addForce(float force) {
         Vector3f accelerationVector = this.getRocket().getState().getRotation().transformUnit(new Vector3f(0, 1, 0));
         accelerationVector.mul(force / (rocket.getMass()));
         accelerationVector.div(20);
 
-        this.addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
+
+        setRotation(getRocket().getState().getRotation().rotateLocalX(0.00025f * (float) Math.pow(getRocket().getTWR(), 3)));
+
+
+        addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
     }
 
     public void setRocket(Rocket rocket) {

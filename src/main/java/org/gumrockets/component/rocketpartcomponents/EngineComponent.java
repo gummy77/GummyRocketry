@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.particle.*;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.entity.RocketEntity;
@@ -31,14 +32,25 @@ public class EngineComponent {
         return exhaustParticle;
     }
 
-    public void tick(World world, RocketEntity rocket, RocketPart rocketPart) {
-        // add force to rocket
-        rocket.addForce(this.power, rocketPart.getOffset());
+    public void tick(World world, RocketEntity rocket, RocketPart rocketPart, boolean isIgnition) {
+
+        if (!isIgnition) {
+            // add force to rocket
+            rocket.addForce(this.power);
+        }
 
         // render engine particles
         Vec3d particlePosition = rocket.getPos();
 
-        world.addImportantParticle(exhaustParticle, true, particlePosition.x, particlePosition.y, particlePosition.z, 0, 0, 0);
+        for (int i = 0; i <= 1; i++) {
+            Random random = Random.create();
+            Vec3d particleVelocity = new Vec3d(random.nextDouble() - 0.5, 0, random.nextDouble() - 0.5);
+            particleVelocity = particleVelocity.multiply(isIgnition ? 0.15 : 0.025);
+            world.addImportantParticle(exhaustParticle, true,
+                    particlePosition.x, particlePosition.y, particlePosition.z,
+                    particleVelocity.x, particleVelocity.y, particleVelocity.z
+            );
+        }
     }
 
     public static final Codec<EngineComponent> CODEC = RecordCodecBuilder.create(builder ->

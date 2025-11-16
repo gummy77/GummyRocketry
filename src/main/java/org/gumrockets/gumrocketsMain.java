@@ -19,6 +19,7 @@ public class gumrocketsMain implements ModInitializer {
         BlockRegistry.initializeRegistry();
         EntityRegistry.initializeRegistry();
         NetworkingConstants.registerPayloads();
+        ParticleRegistry.registerParticles();
 
         RocketPartRegistry.initializeRegistry();
 
