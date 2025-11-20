@@ -1,3 +1,4 @@
 /kill @e[]
 /weather clear
 /gamerule doWeatherCycle false
+/time set 1200

@@ -1,6 +1,6 @@
-[21:07:37] [main/WARN] (FabricLoader/Knot) Class path entries reference missing files: /home/gummy/Documents/MinecraftModding/GummyRocketry/build/resources/client - the game may not load properly!
-[21:07:37] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.18.0
-[21:07:37] [main/INFO] (FabricLoader) Loading 55 mods:
+[18:51:52] [main/WARN] (FabricLoader/Knot) Class path entries reference missing files: /home/gummy/Documents/MinecraftModding/GummyRocketry/build/resources/client - the game may not load properly!
+[18:51:52] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.18.0
+[18:51:52] [main/INFO] (FabricLoader) Loading 55 mods:
 	- fabric-api 0.116.7+1.21.1
 	- fabric-api-base 0.4.42+6573ed8c19
 	- fabric-api-lookup-api-v1 1.6.71+b559734419
@@ -56,271 +56,45 @@
 	- java 23
 	- minecraft 1.21.1
 	- mixinextras 0.5.0
-[21:07:37] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/gummy/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/80fc3a9f592673cea87f4cd702f87991c6c9fe4d/sponge-mixin-0.16.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
-[21:07:37] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[21:07:37] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[21:07:37] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
-[21:07:38] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
-[21:07:39] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 252 milliseconds
-[21:07:43] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[21:07:43] [Render thread/INFO] (Minecraft) Setting user: Player31
-[21:07:43] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
-[21:07:43] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
-[21:07:45] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
-[21:07:45] [Worker-Main-7/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
-[21:07:45] [Worker-Main-10/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
-[21:07:45] [Worker-Main-1/WARN] (Minecraft) Texture csp:item/adrian with size 348x348 limits mip level from 4 to 2
-[21:07:45] [Worker-Main-1/WARN] (Minecraft) minecraft:textures/atlas/blocks.png: dropping miplevel from 4 to 2, because of minimum power of two: 4
-[21:07:46] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
-[21:07:46] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[21:07:46] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
-[21:07:46] [Render thread/INFO] (Minecraft) Sound engine started
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 1024x1024x2 minecraft:textures/atlas/blocks.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[21:07:46] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[21:07:46] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/bamboo/exhaust - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/bamboo/exhaust
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/copper/exhaust - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/copper/exhaust
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:grant_book_on_achievement - Failed to parse either. First: Unknown registry key in ResourceKey[minecraft:root / minecraft:loot_function_type]: minecraft:set_nbt; Second: Not a json array: {"function":"set_nbt","tag":"{\"patchouli:book\": \"csp:aerospace_guide\"}"}; Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: patchouli:guide_book
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/copper/body_segment - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/copper/body_segment
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/copper/nose_cone - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/copper/nose_cone
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/bamboo/body_segment - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/bamboo/body_segment
-[21:08:06] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/csp:blocks/rocket/bamboo/nose_cone - Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: csp:rocket/bamboo/nose_cone
-[21:08:07] [Render thread/INFO] (Minecraft) Loaded 1290 recipes
-[21:08:07] [Render thread/INFO] (Minecraft) Loaded 1399 advancements
-[21:08:07] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.297 ms
-[21:08:07] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.1
-[21:08:07] [Server thread/INFO] (Minecraft) Generating keypair
-[21:08:07] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[21:08:08] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
-[21:08:08] [Render thread/INFO] (Minecraft) Time elapsed: 225 ms
-[21:08:08] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
-[21:08:08] [Server thread/INFO] (Minecraft) Changing simulation distance to 32, from 0
-[21:08:08] [Server thread/INFO] (Minecraft) Player31[local:E:cb43528f] logged in with entity id 11 at (-43.92296430850843, -60.0, -2.9242581318877026)
-[21:08:08] [Server thread/INFO] (Minecraft) Player31 joined the game
-[21:08:09] [Render thread/INFO] (Minecraft) Loaded 2 advancements
-[21:08:13] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:08:13] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:08:13] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:08:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
-[21:08:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
-[21:08:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
-[21:08:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
-[21:08:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
-[21:08:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
-[21:08:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
-[21:08:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
-[21:08:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:08:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:08:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:08:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:09:10] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:09:10] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:09:10] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:09:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 681.9258963592379
-[21:09:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 681.92578125
-[21:09:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 681.9265921078651
-[21:09:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 681.926513671875
-[21:09:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 681.8772878557472
-[21:09:24] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 681.877197265625
-[21:09:24] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 681.7779836028843
-[21:09:24] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 681.778076171875
-[21:09:31] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:09:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:09:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:09:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:09:41] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:09:41] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:09:41] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:09:54] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 686.2501247726409
-[21:09:54] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 686.250244140625
-[21:09:54] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 686.2786968387692
-[21:09:54] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 686.27880859375
-[21:09:54] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 686.2572689041524
-[21:09:54] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 686.25732421875
-[21:09:54] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 686.1858409687906
-[21:09:54] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 686.185791015625
-[21:09:57] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:09:57] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:09:57] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:09:57] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:10:05] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:10:05] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:10:05] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:10:16] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:10:16] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:10:16] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:10:30] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3257925860612
-[21:10:30] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.32568359375
-[21:10:30] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3419587500422
-[21:10:30] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.342041015625
-[21:10:30] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3081249132781
-[21:10:30] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.30810546875
-[21:10:30] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.224291075769
-[21:10:30] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.224365234375
-[21:10:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:10:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:10:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:10:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:10:36] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:10:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:10:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:10:36] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:11:12] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:11:12] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:11:12] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:11:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3257925860612
-[21:11:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.32568359375
-[21:11:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3419587500422
-[21:11:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.342041015625
-[21:11:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.3081249132781
-[21:11:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.30810546875
-[21:11:26] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 684.224291075769
-[21:11:26] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 684.224365234375
-[21:11:27] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:11:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:11:28] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:11:28] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:11:42] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:11:42] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:11:42] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:11:58] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:11:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:11:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:11:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:12:10] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:12:10] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:12:10] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:12:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
-[21:12:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
-[21:12:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
-[21:12:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
-[21:12:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
-[21:12:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
-[21:12:23] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
-[21:12:23] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
-[21:12:35] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:12:35] [Render thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Client
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Stage: 0
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: ENGINE
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: FUEL
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: NOSE
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Fuel: 5.0s
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Thrust: 400.0N
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Mass: 175.0kg
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]:  
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: TWR: 2.2857144
-[21:12:35] [Server thread/INFO] (Minecraft) [STDOUT]: Rocket Data on Server
-[21:12:38] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:12:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:12:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:12:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:12:49] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:12:49] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:12:49] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:12:49] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[21:13:06] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[21:13:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[21:13:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[21:13:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[18:51:52] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/gummy/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/80fc3a9f592673cea87f4cd702f87991c6c9fe4d/sponge-mixin-0.16.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[18:51:53] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[18:51:53] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[18:51:53] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[18:51:53] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
+[18:51:54] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 325 milliseconds
+[18:51:59] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[18:51:59] [Render thread/INFO] (Minecraft) Setting user: Player615
+[18:51:59] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[18:51:59] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
+[18:52:01] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[18:52:01] [Worker-Main-7/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[18:52:01] [Worker-Main-9/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[18:52:01] [Worker-Main-2/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[18:52:01] [Worker-Main-2/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[18:52:03] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[18:52:03] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[18:52:03] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[18:52:03] [Render thread/INFO] (Minecraft) Sound engine started
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[18:52:03] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[18:52:03] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[18:52:26] [Render thread/INFO] (Minecraft) Connecting to 192.168.1.9, 45691
+[18:52:27] [IO-Worker-1/WARN] (Minecraft) Failed to log in: Invalid session (Try restarting your game and the launcher)
+[18:52:29] [Render thread/INFO] (Minecraft) Loaded 2 advancements
+[18:53:15] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
+[18:53:15] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
+[18:53:15] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
+[18:53:15] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
+[18:53:34] [Render thread/INFO] (Minecraft) Stopping!

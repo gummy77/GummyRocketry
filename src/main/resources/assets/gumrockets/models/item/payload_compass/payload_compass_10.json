@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gumrockets:item/payload_compass/payload_compass_10"
+  }
+}

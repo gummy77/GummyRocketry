@@ -13,7 +13,7 @@ public class Assembler extends Item {
     private final RocketPart.PartMaterial maxMaterial;
 
     public Assembler(Settings settings, RocketPart.PartMaterial maxMaterial) {
-        super(settings);
+        super(settings.maxCount(1));
         this.maxMaterial = maxMaterial;
     }
 

@@ -5,12 +5,16 @@ import net.minecraft.component.ComponentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.gumrockets.component.PayloadCompassComponent;
 import org.gumrockets.gumrocketsMain;
 import org.gumrockets.component.RocketPart;
+import org.gumrockets.item.PayloadCompass;
 
 public class ComponentRegistry {
 
     public static final ComponentType<RocketPart> ROCKET_PART_COMPONENT_TYPE = registerComponent("rocket_part", RocketPart.CODEC);
+
+    public static final ComponentType<PayloadCompassComponent> PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE = registerComponent("payload_compass", PayloadCompassComponent.CODEC);
 
     public static void initializeRegistry() {
         gumrocketsMain.LOGGER.debug("Registering components complete");

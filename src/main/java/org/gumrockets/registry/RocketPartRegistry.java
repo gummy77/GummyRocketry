@@ -30,7 +30,7 @@ public class RocketPartRegistry {
                             RocketPart.PartType.FUEL,
                             6, 100
                     ).addFuelComponent(new FuelComponent(5f, 1f, 1f, 1f, FuelComponent.FuelType.SOLID)).build());
-            registerRocketPart("rocket/wooden/motor",
+            registerRocketPart("rocket/wooden/exhaust",
                     new RocketPart.RocketPartBuilder(
                             BlockRegistry.WOODEN_MOTOR.getDefaultState(),
                             RocketPart.PartMaterial.WOOD,

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ipi",
+    "iri",
+    "iii"
+  ],
+  "key": {
+    "p": {
+      "item": "gumrockets:parachute"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "gumrockets:payloads/empty_payload",
+    "count": 1
+  }
+}

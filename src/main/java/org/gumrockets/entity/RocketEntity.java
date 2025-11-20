@@ -7,31 +7,25 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
-import net.minecraft.world.explosion.ExplosionBehavior;
-import org.gumrockets.component.Rocket;
-import org.gumrockets.component.RocketPart;
-import org.gumrockets.component.RocketStage;
-import org.gumrockets.component.RocketState;
+import org.gumrockets.component.*;
 import org.gumrockets.payload.UpdateRocketPayload;
+import org.gumrockets.registry.ComponentRegistry;
 import org.gumrockets.registry.EntityRegistry;
+import org.gumrockets.registry.ItemRegistry;
+import org.gumrockets.registry.ParticleRegistry;
 import org.joml.Quaternionf;
-import org.joml.Quaternionfc;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
@@ -90,7 +84,7 @@ public class RocketEntity extends Entity {
                     System.out.println("peaking: " + getPos().y);
                 }
 
-                getWorld().addImportantParticle(ParticleTypes.CLOUD, true,
+                getWorld().addImportantParticle(ParticleRegistry.EXHAUST, true,
                         getPos().x, getPos().y, getPos().z,
                         0, 0, 0
                 );
@@ -194,12 +188,31 @@ public class RocketEntity extends Entity {
 
         if(this.getRocket() == null || this.getRocket().getState() == null) return ActionResult.FAIL;
 
-        if(this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE && this.getRocket().getState().getLaunchTimer() > 0) {
-            this.getRocket().getState().setLaunchState(RocketState.LaunchState.IGNITION);
-        } else {
-            return ActionResult.FAIL;
+        ItemStack stackInHand = player.getStackInHand(hand);
+        if(stackInHand != null) {
+            if(stackInHand.getItem() == ItemRegistry.PAYLOAD_COMPASS) {
+                stackInHand.set(ComponentRegistry.PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE,
+                        new PayloadCompassComponent(
+                                GlobalPos.create(player.getWorld().getRegistryKey(),
+                                        player.getBlockPos()
+                                ),
+                                this.getId()
+                        )
+                );
+            }
+            else if(stackInHand.getItem() == ItemRegistry.BASIC_LAUNCH_KIT) {
+                if (this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE && this.getRocket().getState().getLaunchTimer() > 0) {
+                    this.getRocket().getState().setLaunchState(RocketState.LaunchState.IGNITION);
+                } else {
+                    return ActionResult.FAIL;
+                }
+            }
         }
 
+        return super.interact(player, hand);
+    }
+
+    private void printConsoleStats() {
         if(getWorld() instanceof ServerWorld) {
             for (int i = 0; i <= this.getRocket().getStages().size() - 1; i++) {
                 RocketStage stage = this.getRocket().getStages().get(i);
@@ -222,9 +235,8 @@ public class RocketEntity extends Entity {
             }
             System.out.println("TWR: " + getRocket().getTWR());
         }
-
-        return super.interact(player, hand);
     }
+
 
     @Override
     public boolean handleAttack(Entity attacker) {

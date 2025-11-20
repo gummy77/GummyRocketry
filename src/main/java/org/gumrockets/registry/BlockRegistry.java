@@ -17,7 +17,7 @@ public class BlockRegistry {
             new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD)));
     public static final RocketPartBlock WOODEN_FUEL_SEGMENT = (RocketPartBlock) register("rocket/wooden/fuel_segment",
             new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD)));
-    public static final RocketPartBlock WOODEN_MOTOR = (RocketPartBlock) register("rocket/wooden/motor",
+    public static final RocketPartBlock WOODEN_MOTOR = (RocketPartBlock) register("rocket/wooden/exhaust",
             new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD)));
 
     public static BlockEntityType<RocketPartBlockEntity> ROCKET_PART_BLOCK_ENTITY = registerEntity("rocket_part_block_entity",

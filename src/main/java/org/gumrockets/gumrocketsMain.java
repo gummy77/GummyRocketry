@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.gumrockets.registry.*;
 
 public class gumrocketsMain implements ModInitializer {
-    public static final String MOD_ID = "csp";
+    public static final String MOD_ID = "gumrockets";
     public static final Logger LOGGER = LogManager.getLogger("Creeper Space Program");
 
     @Override

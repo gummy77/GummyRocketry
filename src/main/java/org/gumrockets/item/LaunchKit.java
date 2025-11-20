@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class LaunchKit extends Item {
 
     public LaunchKit(Settings settings) {
-        super(settings);
+        super(settings.maxCount(1));
     }
 
     @Override

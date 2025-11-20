@@ -11,8 +11,8 @@ public class PlumeParticle extends AbstractSlowingParticle {
 
     protected PlumeParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
         super(world, x, y, z, velocityX, velocityY, velocityZ);
-        this.maxAge = 160;
-        this.scale = 1;
+        this.maxAge = 300;
+        this.scale = 2;
     }
 
     @Override
@@ -23,11 +23,11 @@ public class PlumeParticle extends AbstractSlowingParticle {
     @Override
     public float getSize(float tickDelta) {
         float age = ((this.age) / (float) this.getMaxAge());
-        float newScale = (float) Math.max(Math.min((-Math.pow((age * 0.5)-0.5f,2) + 1f), 1), 0);
-        float newAlpha = (float) Math.max(Math.min((-Math.pow((age + 0.25),2) + 1.0f), 1), 0);
+        float newScale = (float) Math.max(Math.min( (1f - Math.pow((age * 0.8f)-0.8f, 2f)) , 1f), 0f);
+        float newAlpha = (float) Math.max(Math.min( (1f - Math.pow((age + 0.25f)    , 2f)) , 1f), 0f);
 
         this.setAlpha(newAlpha);
-        return newScale;
+        return newScale * this.scale;
     }
 
     @Environment(EnvType.CLIENT)

@@ -1,0 +1,14 @@
+{
+  "wooden_rocket_launch": {
+    "subtitle": "sound.gumrocket.wooden_rocket_launch",
+    "sounds": [
+      "gumrocket:wooden_rocket_launch"
+    ]
+  },
+  "basic_assemble": {
+    "subtitle": "sound.gumrocket.basic_assemble",
+    "sounds": [
+      "gumrocket:basic_assemble"
+    ]
+  }
+}

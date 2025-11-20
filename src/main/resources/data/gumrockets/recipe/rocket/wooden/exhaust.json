@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " b ",
+    "wnw"
+  ],
+  "key": {
+    "w": {
+      "tag": "minecraft:planks"
+    },
+    "b": {
+      "item": "gumrockets:rocket/wooden/fuel_segment"
+    },
+    "n": {
+      "item": "gumrockets:iron_exhaust_nozzle"
+    }
+  },
+  "result": {
+    "id": "gumrockets:rocket/wooden/exhaust",
+    "count": 1
+  }
+}

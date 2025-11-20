@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "bpb",
+    " c "
+  ],
+  "key": {
+    "p": {
+      "item": "gumrockets:payloads/empty_payload"
+    },
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "c": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "id": "gumrockets:payloads/stardust_catcher_payload",
+    "count": 1
+  }
+}

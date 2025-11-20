@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "cFc",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "O": {
+      "tag": "minecraft:wooden_buttons"
+    },
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "F": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "S": {
+      "item": "gumrockets:fuse"
+    }
+  },
+  "result": {
+    "id": "gumrockets:basic_launch_kit",
+    "count": 1
+  }
+}

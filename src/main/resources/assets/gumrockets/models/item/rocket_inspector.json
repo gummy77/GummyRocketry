@@ -1,0 +1,13 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gumrockets:item/rocket_inspector"
+  },
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [ -20, -10, 45 ],
+      "translation": [ 1.13, 3.2, 0.13],
+      "scale": [ 0.68, 0.68, 0.68 ]
+    }
+  }
+}

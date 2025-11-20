@@ -1,0 +1,76 @@
+{
+  "_comment": "--- Misc ---",
+  "itemGroup.gumrockets.gumrocketsmodgroup": "Creeper Space Program",
+
+  "_comment": "--- Sounds ---",
+  "sound.gumrockets.wooden_rocket_launch": "Rocket Launches",
+  "sound.gumrockets.basic_assemble": "Rocket is Assembled",
+
+  "_comment": "--- Death Texts",
+  "death.attack.drown_in_oil": "%1$s drowned in oil",
+  "death.attack.drown_in_oil.player": "%1$s drowned in oil whilst trying to escape %2$s",
+
+  "_comment": "--- Debug Stuff ---",
+  "item.gumrockets.dev_wand": "Dev Wand",
+
+  "_comment": "--- Entities ---",
+  "entity.gumrockets.rocket_entity": "Rocket",
+  "entity.gumrockets.payload_entity": "Payload",
+
+  "_comment": "--- Items ---",
+  "item.gumrockets.basic_launch_kit": "Basic Launch Kit",
+  "item.gumrockets.basic_assembler": "Basic Assembler",
+  "item.gumrockets.payload_compass": "Payload Tracking Compass",
+  "item.gumrockets.rocket_inspector": "Rocket Inspector",
+
+  "_comment": "--- Crafting Items ---",
+  "item.gumrockets.fuse":"Fuse",
+  "item.gumrockets.iron_exhaust_nozzle": "Iron Nozzle",
+  "item.gumrockets.stardust": "Stardust",
+  "item.gumrockets.parachute": "Parachute",
+
+  "_comment" : "--- Blocks ---",
+
+  "_comment": "--- Payloads ---",
+  "item.gumrockets.payloads.empty_payload": "Empty Payload",
+  "item.gumrockets.payloads.stardust_catcher_payload": "Stardust Collector Payload",
+
+  "_comment": "--- Rocket Parts ---",
+  "block.gumrockets.rocket.wooden.nose": "Wooden Nose Cone",
+  "block.gumrockets.rocket.wooden.fuel_segment": "Wooden Fuel Segment",
+  "block.gumrockets.rocket.wooden.exhaust": "Wooden Exhaust",
+
+  "block.gumrockets.rocket.bamboo.nose": "Bamboo Nose Cone",
+  "block.gumrockets.rocket.bamboo.fuel_segment": "Bamboo Fuel Segment",
+  "block.gumrockets.rocket.bamboo.exhaust": "Bamboo Exhaust",
+
+  "block.gumrockets.rocket.copper.nose": "Copper Nose Cone",
+  "block.gumrockets.rocket.copper.fuel_segment": "Copper Fuel Segment",
+  "block.gumrockets.rocket.copper.exhaust": "Copper Exhaust",
+
+  "block.gumrockets.rocket.iron.nose": "Iron Nose Cone",
+  "block.gumrockets.rocket.iron.body_segment": "Iron Fuel Segment",
+  "block.gumrockets.rocket.iron.exhaust": "Iron Exhaust",
+
+  "_comment": "--- Advancement Stuff ---",
+  "advancements.gumrockets.root.title": "This stuff explodes!?",
+  "advancements.gumrockets.root.description": "Technically it Deflagrates...",
+  "advancements.gumrockets.testadv.title": "This is a test Advancement",
+  "advancements.gumrockets.testadv.description": "You aren't supposed to see this!",
+  "advancements.gumrockets.bamboo_rocket_adv.title": "It went Bam(boo)!",
+  "advancements.gumrockets.bamboo_rocket_adv.description": "Launch your first bamboo rocket!",
+  "advancements.gumrockets.wood_rocket_adv.title": "Woodn't you know it!",
+  "advancements.gumrockets.wood_rocket_adv.description": "Launch your first wooden rocket!",
+  "advancements.gumrockets.create_first_rocket.title": "To infinity, and beyond!",
+  "advancements.gumrockets.create_first_rocket.description": "Craft your first rocket part.",
+  "advancements.gumrockets.launch_firework_rocket.title": "A spectacular boom!",
+  "advancements.gumrockets.launch_firework_rocket.description": "Fire off a firework rocket.",
+  "advancements.gumrockets.add_payload.title": "Loading it up!",
+  "advancements.gumrockets.add_payload.description": "Add a payload to an assembled rocket.",
+  "advancements.gumrockets.rocket_failure_launch.title": "Houston, we have a problem!",
+  "advancements.gumrockets.rocket_failure_launch.description": "Have a failure occur on a rocket at launch.",
+  "advancements.gumrockets.payload_comp_adv.title": "To help you find your pay",
+  "advancements.gumrockets.payload_comp_adv.description": "Craft a Payload Compass",
+  "advancements.gumrockets.amoeba_eater.title": "YOU MONSTER",
+  "advancements.gumrockets.amoeba_eater.description": "How could you EAT him???"
+}
