@@ -11,6 +11,8 @@ public class Rocket {
     private final ArrayList<RocketStage> stages;
     private RocketState state;
 
+    private int fuseHolderID = 0;
+
     private float cachedWidth = 0;
 
     public Rocket(ArrayList<RocketStage> stages) {
@@ -18,9 +20,10 @@ public class Rocket {
         this.state = new RocketState(RocketState.LaunchState.IDLE);
         this.cachedWidth = 0;
     }
-    public Rocket(List<RocketStage> stages, RocketState state) {
+    public Rocket(List<RocketStage> stages, RocketState state, int fuseHolderID) {
         this.stages = new ArrayList<>(stages);
         this.state = state;
+        this.fuseHolderID = fuseHolderID;
     }
 
     public void createNewState() {
@@ -73,6 +76,14 @@ public class Rocket {
         return thrust / mass;
     }
 
+    public int getFuseHolderID() {
+        return this.fuseHolderID;
+    }
+
+    public void setFuseHolderID(int fuseHolderID) {
+        this.fuseHolderID = fuseHolderID;
+    }
+
     public RocketStage getCurrentStage() {
         if(this.state.getCurrentStage() > this.stages.size()-1) return null;
         return this.stages.get(this.state.getCurrentStage());
@@ -85,6 +96,7 @@ public class Rocket {
     public static Codec<Rocket> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
                     Codecs.nonEmptyList(RocketStage.CODEC.listOf()).fieldOf("stages").forGetter(Rocket::getStages),
-                    RocketState.CODEC.fieldOf("state").forGetter(Rocket::getState)
+                    RocketState.CODEC.fieldOf("state").forGetter(Rocket::getState),
+                    Codec.INT.fieldOf("fuseHolderID").forGetter(Rocket::getFuseHolderID)
             ).apply(builder, Rocket::new));
 }

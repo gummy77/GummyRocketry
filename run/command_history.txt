@@ -2,3 +2,9 @@
 /weather clear
 /gamerule doWeatherCycle false
 /time set 1200
+/gamemode survival
+/gamemode creative
+/gamemode s
+/gamemode survival
+/gamemode creative
+/gamemode survival

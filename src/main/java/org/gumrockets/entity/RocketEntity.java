@@ -25,6 +25,7 @@ import org.gumrockets.registry.ComponentRegistry;
 import org.gumrockets.registry.EntityRegistry;
 import org.gumrockets.registry.ItemRegistry;
 import org.gumrockets.registry.ParticleRegistry;
+import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
@@ -33,6 +34,8 @@ import java.util.ArrayList;
 public class RocketEntity extends Entity {
     private Rocket rocket;
     private Vec3d prevVelocity = Vec3d.ZERO;
+
+    private boolean justAttached = false;
 
     public static final EntitySettings settings = new EntitySettings(
             "rocket_entity",
@@ -49,6 +52,7 @@ public class RocketEntity extends Entity {
     public void tick() {
         if(getWorld() instanceof ServerWorld) {
             networkUpdateData();
+            updateFuse();
             this.setBoundingBox(this.calculateBoundingBox());
         }
 
@@ -108,6 +112,7 @@ public class RocketEntity extends Entity {
             this.kill();
         }
 
+        justAttached = false;
         prevVelocity = getVelocity();
     }
 
@@ -168,6 +173,17 @@ public class RocketEntity extends Entity {
         this.getRocket().getState().stage();
     }
 
+    public void Launch() {
+        if (getWorld() instanceof ServerWorld) {
+            if (this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE && this.getRocket().getState().getLaunchTimer() > 0) {
+                if(!justAttached) {
+                    this.getRocket().getState().setLaunchState(RocketState.LaunchState.IGNITION);
+                    detachFuse(false);
+                }
+            }
+        }
+    }
+
     private void tickEngines(boolean isIgnition) {
         ArrayList<RocketPart> parts = this.getRocket().getCurrentStage().getParts();
 
@@ -183,32 +199,42 @@ public class RocketEntity extends Entity {
 
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
-
-        System.out.println((this.getRocket() != null ? "Rocket Data" : "No Rocket Data") + (getWorld().isClient() ? " on Client" : " on Server"));
-
+        if(hand != Hand.MAIN_HAND) return super.interact(player, hand);;
         if(this.getRocket() == null || this.getRocket().getState() == null) return ActionResult.FAIL;
 
-        ItemStack stackInHand = player.getStackInHand(hand);
-        if(stackInHand != null) {
-            if(stackInHand.getItem() == ItemRegistry.PAYLOAD_COMPASS) {
-                stackInHand.set(ComponentRegistry.PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE,
-                        new PayloadCompassComponent(
-                                GlobalPos.create(player.getWorld().getRegistryKey(),
-                                        player.getBlockPos()
-                                ),
-                                this.getId()
-                        )
-                );
-            }
-            else if(stackInHand.getItem() == ItemRegistry.BASIC_LAUNCH_KIT) {
-                if (this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE && this.getRocket().getState().getLaunchTimer() > 0) {
-                    this.getRocket().getState().setLaunchState(RocketState.LaunchState.IGNITION);
-                } else {
-                    return ActionResult.FAIL;
+        if((getWorld() instanceof ServerWorld)) {
+            ItemStack stackInHand = player.getStackInHand(hand);
+            if (stackInHand != ItemStack.EMPTY) {
+                if (stackInHand.getItem() == ItemRegistry.PAYLOAD_COMPASS) {
+                    stackInHand.set(ComponentRegistry.PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE,
+                            new PayloadCompassComponent(
+                                    GlobalPos.create(player.getWorld().getRegistryKey(),
+                                            player.getBlockPos()
+                                    ),
+                                    this.getId()
+                            )
+                    );
+                } else if (stackInHand.getItem() == ItemRegistry.BASIC_LAUNCH_KIT) {
+                    if (this.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE
+                            && this.getRocket().getState().getLaunchTimer() > 0
+                            && getFuseHolder() == null
+                    ) {
+                        if (player.getInventory().contains(ItemRegistry.FUSE.getDefaultStack()) || player.isCreative()) {
+                            if (!player.isCreative())
+                                player.getInventory().removeStack(player.getInventory().getSlotWithStack(ItemRegistry.FUSE.getDefaultStack()), 1);
+                            this.attachFuse(player);
+                            return ActionResult.success(true);
+                        }
+                    } else {
+                        return ActionResult.FAIL;
+                    }
+                }
+            } else {
+                if (getFuseHolder() == player) {
+                    detachFuse(!player.getAbilities().creativeMode);
                 }
             }
         }
-
         return super.interact(player, hand);
     }
 
@@ -252,11 +278,54 @@ public class RocketEntity extends Entity {
         accelerationVector.mul(force / (rocket.getMass()));
         accelerationVector.div(20);
 
-
         setRotation(getRocket().getState().getRotation().rotateLocalX(0.00025f * (float) Math.pow(getRocket().getTWR(), 3)));
 
-
         addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
+    }
+
+    private void updateFuse() {
+        if (getFuseHolder() != null) {
+            if (!this.isAlive() || !this.getFuseHolder().isAlive()) {
+                this.detachFuse(true);
+            }
+        }
+    }
+
+    public void attachFuse(Entity entity) {
+        if (entity != null) {
+            setFuseHolder(entity);
+            justAttached = true;
+        }
+    }
+
+    public void detachFuse(boolean dropItem) {
+        if (getFuseHolder() != null) {
+            setFuseHolder(null);
+            if (dropItem) {
+                this.dropItem(ItemRegistry.FUSE);
+            }
+        }
+    }
+
+    private void setFuseHolder(@Nullable Entity entity) {
+        if(entity != null) {
+            this.rocket.setFuseHolderID(entity.getId());
+        } else {
+            this.rocket.setFuseHolderID(-1);
+        }
+
+    }
+
+    public Entity getFuseHolder() {
+        if(rocket != null) {
+            if (rocket.getFuseHolderID() != -1) {
+                Entity holderEntity = this.getWorld().getEntityById(rocket.getFuseHolderID());
+                if (holderEntity != null) {
+                    return holderEntity;
+                }
+            }
+        }
+        return null;
     }
 
     public void setRocket(Rocket rocket) {
@@ -275,6 +344,11 @@ public class RocketEntity extends Entity {
     @Override
     public boolean isCollidable() {
         return true;
+    }
+
+    @Override
+    protected Vec3d getLeashOffset() {
+        return Vec3d.ZERO;
     }
 
     @Override
