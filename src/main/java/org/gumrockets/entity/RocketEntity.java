@@ -162,7 +162,7 @@ public class RocketEntity extends Entity {
                 StageEntity stageEntity = new StageEntity(EntityRegistry.STAGE_ENTITY, getWorld());
                 stageEntity.setPosition(this.getPos().add(new Vec3d(0, 0.1f, 0))); // TODO when doing rotations fix this
 
-                stageEntity.setVelocity(this.getVelocity().multiply(0.9f));
+//                stageEntity.setVelocity(this.getVelocity().multiply(0.9f));
                 stageEntity.readCustomDataFromNbt(nbt);
 
                 getWorld().spawnEntity(stageEntity);

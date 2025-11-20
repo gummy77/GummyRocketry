@@ -49,16 +49,18 @@ public class StageEntity extends Entity {
 
         super.tick();
 
-        Vec3d velocityChange = prevVelocity.subtract(this.getVelocity());
-        if(velocityChange.lengthSquared() > 1) {
-            getWorld().createExplosion(
-                    this,
-                    getX(), getY(), getZ(),
-                    (float) (Math.sqrt(velocityChange.length()) * getStage().getHeight()) * 0.25f,
-                    (Math.sqrt(velocityChange.length()) > 2.5),
-                    World.ExplosionSourceType.BLOCK
-            );
-            this.kill();
+        if(getStage() != null) {
+            Vec3d velocityChange = prevVelocity.subtract(this.getVelocity());
+            if (velocityChange.lengthSquared() > 1) {
+                getWorld().createExplosion(
+                        this,
+                        getX(), getY(), getZ(),
+                        (float) (Math.sqrt(velocityChange.length()) * getStage().getHeight()) * 0.25f,
+                        (Math.sqrt(velocityChange.length()) > 2.5),
+                        World.ExplosionSourceType.BLOCK
+                );
+                this.kill();
+            }
         }
 
         prevVelocity = getVelocity();
