@@ -18,6 +18,7 @@ import org.gumrockets.gumrocketsMain;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.item.Assembler;
 import org.gumrockets.item.LaunchKit;
+import org.gumrockets.item.RocketInspector;
 
 public class ItemRegistry {
 
@@ -31,7 +32,7 @@ public class ItemRegistry {
     public static final Assembler BASIC_ASSEMBLER = (Assembler) register("basic_assembler", new Assembler(new Item.Settings(), RocketPart.PartMaterial.IRON));
     public static final LaunchKit BASIC_LAUNCH_KIT = (LaunchKit) register("basic_launch_kit", new LaunchKit(new Item.Settings()));
     public static final Item PAYLOAD_COMPASS = register("payload_compass", new Item(new Item.Settings()));
-    public static final Item ROCKET_INSPECTOR = register("rocket_inspector", new Item(new Item.Settings().maxCount(1)));
+    public static final Item ROCKET_INSPECTOR = register("rocket_inspector", new RocketInspector(new Item.Settings().maxCount(1)));
 
     // Resources
     public static final Item STARDUST = register("stardust", new Item(new Item.Settings().rarity(Rarity.RARE)));

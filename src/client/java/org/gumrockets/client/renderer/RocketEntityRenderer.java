@@ -1,31 +1,45 @@
 package org.gumrockets.client.renderer;
 
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
+import org.gumrockets.component.Rocket;
+import org.gumrockets.component.RocketState;
 import org.gumrockets.gumrocketsMain;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.component.RocketStage;
 import org.gumrockets.entity.RocketEntity;
 import org.joml.Matrix4f;
+import org.joml.Quaterniond;
+import org.joml.Quaternionf;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
 
     private final BlockRenderManager blockRenderManager;
+    private final TextRenderer textRenderer;
+
+    private float visibility = 0;
 
     public RocketEntityRenderer(EntityRendererFactory.Context context) {
         super(context);
         blockRenderManager = context.getBlockRenderManager();
+        textRenderer = context.getTextRenderer();
+
+        this.shadowRadius = 0.5f;
+        this.shadowOpacity = 0.5f;
     }
 
     @Override
@@ -45,11 +59,6 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
             ArrayList<RocketStage> stages = entity.getRocket().getStages();
             int stageCounter = Math.min(entity.getRocket().getState().getCurrentStage(), stages.size()-1);
 
-//            for(int i = 0; i <= stageCounter-1; i++) {
-//                RocketStage stage = stages.get(i);
-//                matrices.translate(0, -stage.getHeight(), 0);
-//            }
-
             for (int i = stageCounter; i < stages.size(); i++) {
                 RocketStage stage = stages.get(i);
                 ArrayList<RocketPart> parts = stage.getParts();
@@ -63,10 +72,117 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
             }
             matrices.pop();
 
+            if((entity.IsPlayerWatching() || visibility > 0) && entity.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE) {
+                renderStatsText(entity, matrices, vertexConsumers, light, visibility);
+            }
+            if(entity.IsPlayerWatching()) {
+                visibility += 0.1f;
+            } else {
+                visibility -= 0.1f;
+            }
+
+            visibility = MathHelper.clamp(visibility, 0, 1);
+
             if (entity.getFuseHolder() != null) {
                 this.renderFuse(entity, tickDelta, matrices, vertexConsumers, entity.getFuseHolder());
             }
         }
+    }
+
+    private void renderStatsText(RocketEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float visibility) {
+        matrices.push();
+
+        Rocket rocketData = entity.getRocket();
+
+
+        int textColour = Colors.BLACK;
+
+        // Stage Info
+        matrices.push();
+        for (int i = 0; i < rocketData.getStages().size(); i++) {
+            RocketStage stage = rocketData.getStages().get(i);
+            matrices.translate(0f, stage.getHeight(), 0f);
+            matrices.push();
+
+            matrices.multiply(dispatcher.camera.getRotation());
+            matrices.translate(rocketData.getWidth() + 0.25f, 0f, 0f);
+            matrices.scale(0.025f, -0.025f, 0.025f);
+            matrices.scale(visibility, visibility, visibility);
+
+            matrices.push();
+            matrices.translate(20, 0, -1);
+            matrices.scale(25f, 5f, 10f);
+            textRenderer.draw(" ", 0, 0, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Colors.ALTERNATE_WHITE, light);
+            matrices.pop();
+
+            matrices.push();
+            matrices.scale(3f, 2f, 1f);
+            matrices.translate(-5, 21f, -0.5f);
+            textRenderer.draw("/", 0, 0, Colors.ALTERNATE_WHITE, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            matrices.pop();
+
+            textRenderer.draw("Stage " + i, 0f, 0f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            matrices.scale(0.8f, 0.8f, 0.8f);
+
+            float mass = 0;
+            for(int j = i; j < rocketData.getStages().size(); j++) {
+                mass += rocketData.getStages().get(j).getMass();
+            }
+
+            textRenderer.draw("Stage Mass: " + stage.getMass() + "kg", 0f, 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw("Rocket Mass at Stage: " + mass + "kg", 0f, 25f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw("Stage Thrust: " + stage.getThrust() + "N", 0f, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            float TWR = (float) Math.round((stage.getThrust() / mass) * 100) / 100;
+            textRenderer.draw("Stage TWR: " + TWR, 0f, 45f, (TWR > 1 ? textColour : Colors.RED), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+
+
+            matrices.pop();
+        }
+        matrices.pop();
+
+        // Rocket Info
+        matrices.translate(0f, 2 * (rocketData.getHeight() / 3), 0f);
+        matrices.push();
+
+        matrices.multiply(dispatcher.camera.getRotation());
+        matrices.translate(-rocketData.getWidth() - 0.35f, 0f, 0f);
+
+        matrices.scale(visibility, visibility, visibility);
+
+        matrices.scale(0.03f, -0.03f, 0.03f);
+
+        matrices.push();
+        matrices.translate(-85, 0, -1);
+        matrices.scale(18f, 6f, 10f);
+        textRenderer.draw(" ", 0, 0, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Colors.ALTERNATE_WHITE, light);
+        matrices.pop();
+
+        matrices.push();
+        matrices.scale(3f, 2f, 1f);
+        matrices.translate(0, 26f, -0.5f);
+        textRenderer.draw("\\", 0, 0, Colors.ALTERNATE_WHITE, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        matrices.pop();
+
+        String text = "Rocket Stats";
+        textRenderer.draw(text, text.length() * -5, 0f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        matrices.scale(0.8f, 0.8f, 0.8f);
+        text = "Stages: " + rocketData.getStages().size();
+        textRenderer.draw(text, text.length() * -5, 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        text = "Total Mass: " + rocketData.getMass() + "kg";
+        textRenderer.draw(text, text.length() * -5, 25f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        boolean orbital = false;
+        text = "Orbital: " + (orbital ? "" : " "); // TODO when physics math stuff sorted out.
+        textRenderer.draw(text, text.length() * -5, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw((orbital ? "yes" : "no"), -10, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        boolean payload = false;
+        text = "Payload:  " + (payload ? "" : " "); // TODO when physics math stuff sorted out.
+        textRenderer.draw(text, text.length() * -5, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw((payload ? "yes" : "no"), -10, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+
+
+        matrices.pop();
+
+        matrices.pop();
     }
 
     private <E extends Entity> void renderFuse(RocketEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, E holdingEntity) {
@@ -112,9 +228,9 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
         int k = (int)MathHelper.lerp(j, (float)entityBlockLight, (float)holderBlockLight);
         int l = (int)MathHelper.lerp(j, (float)entitySkyLight, (float)holderSkyLight);
         int m = LightmapTextureManager.pack(k, l);
-        float o = 0.3F; // R
-        float p = 0.3F; // G
-        float q = 0.3F; // N
+        float o = 0.2F; // R
+        float p = 0.2F; // G
+        float q = 0.2F; // N
         float r = entityX * j;
         float s = entityY > 0.0F ? entityY * j * j : entityY - entityY * (1.0F - j) * (1.0F - j);
         float t = entityZ * j;

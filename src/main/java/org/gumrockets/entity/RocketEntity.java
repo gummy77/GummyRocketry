@@ -1,5 +1,6 @@
 package org.gumrockets.entity;
 
+import com.google.common.base.Predicates;
 import com.mojang.serialization.DataResult;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -30,12 +31,14 @@ import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RocketEntity extends Entity {
     private Rocket rocket;
     private Vec3d prevVelocity = Vec3d.ZERO;
 
     private boolean justAttached = false;
+    private boolean hasPlayerInspecting = false;
 
     public static final EntitySettings settings = new EntitySettings(
             "rocket_entity",
@@ -50,10 +53,19 @@ public class RocketEntity extends Entity {
 
     @Override
     public void tick() {
+        hasPlayerInspecting = false;
         if(getWorld() instanceof ServerWorld) {
             networkUpdateData();
             updateFuse();
             this.setBoundingBox(this.calculateBoundingBox());
+        } else {
+            List<PlayerEntity> entityList = getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 25, 25, 25), Predicates.notNull());
+
+            for (PlayerEntity playerEntity : entityList) {
+                if(playerEntity.isMainPlayer() && playerEntity.isHolding(ItemRegistry.ROCKET_INSPECTOR)) {
+                    hasPlayerInspecting = true;
+                }
+            }
         }
 
         if (this.getRocket() == null) return; // probably loading from NBT data or needs to be networked
@@ -98,6 +110,7 @@ public class RocketEntity extends Entity {
         this.addVelocity(new Vec3d(0, -0.05f, 0));
         this.move(MovementType.SELF, this.getVelocity());
 
+
         super.tick();
 
         Vec3d velocityChange = prevVelocity.subtract(this.getVelocity());
@@ -114,6 +127,10 @@ public class RocketEntity extends Entity {
 
         justAttached = false;
         prevVelocity = getVelocity();
+    }
+
+    public boolean IsPlayerWatching() {
+        return hasPlayerInspecting;
     }
 
     private void updateRotation() {

@@ -1,155 +1,318 @@
-[22:42:32] [main/WARN] (FabricLoader/Knot) Class path entries reference missing files: /home/gummy/Documents/MinecraftModding/GummyRocketry/build/resources/client - the game may not load properly!
-[22:42:32] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.1 with Fabric Loader 0.18.0
-[22:42:32] [main/INFO] (FabricLoader) Loading 55 mods:
-	- fabric-api 0.116.7+1.21.1
-	- fabric-api-base 0.4.42+6573ed8c19
-	- fabric-api-lookup-api-v1 1.6.71+b559734419
-	- fabric-biome-api-v1 13.0.31+d527f9fd19
-	- fabric-block-api-v1 1.1.0+0bc3503219
-	- fabric-block-view-api-v2 1.0.11+ebb2264e19
-	- fabric-blockrenderlayer-v1 1.1.52+0af3f5a719
-	- fabric-client-tags-api-v1 1.1.15+6573ed8c19
-	- fabric-command-api-v1 1.2.49+f71b366f19
-	- fabric-command-api-v2 2.2.28+6ced4dd919
-	- fabric-commands-v0 0.2.66+df3654b319
-	- fabric-content-registries-v0 8.0.19+b559734419
-	- fabric-convention-tags-v1 2.1.5+7f945d5b19
-	- fabric-convention-tags-v2 2.11.1+a406e79519
-	- fabric-crash-report-info-v1 0.2.29+0af3f5a719
-	- fabric-data-attachment-api-v1 1.4.5+6116a37819
-	- fabric-data-generation-api-v1 20.2.34+37516cd619
-	- fabric-dimensions-v1 4.0.1+65213ef819
-	- fabric-entity-events-v1 1.8.0+2b27e0a419
-	- fabric-events-interaction-v0 0.7.13+ba9dae0619
-	- fabric-game-rule-api-v1 1.0.53+6ced4dd919
-	- fabric-gametest-api-v1 2.0.5+6fc22b9919
-	- fabric-item-api-v1 11.2.0+3b3cb2e819
-	- fabric-item-group-api-v1 4.1.7+def88e3a19
-	- fabric-key-binding-api-v1 1.0.47+0af3f5a719
-	- fabric-keybindings-v0 0.2.45+df3654b319
-	- fabric-lifecycle-events-v1 2.6.0+0865547519
-	- fabric-loot-api-v2 3.0.15+3f89f5a519
-	- fabric-loot-api-v3 1.0.3+3f89f5a519
-	- fabric-message-api-v1 6.0.14+8aaf3aca19
-	- fabric-model-loading-api-v1 2.1.0+b4d813fc19
-	- fabric-networking-api-v1 4.3.0+c7469b2119
-	- fabric-object-builder-api-v1 15.2.1+40875a9319
-	- fabric-particles-v1 4.0.2+6573ed8c19
-	- fabric-recipe-api-v1 5.0.15+2475392c19
-	- fabric-registry-sync-v0 5.3.1+e3eddc2119
-	- fabric-renderer-api-v1 3.4.1+b4d813fc19
-	- fabric-renderer-indigo 1.7.1+c705a49c19
-	- fabric-renderer-registries-v1 3.2.69+df3654b319
-	- fabric-rendering-data-attachment-v1 0.3.49+73761d2e19
-	- fabric-rendering-fluids-v1 3.1.6+1daea21519
-	- fabric-rendering-v0 1.1.72+df3654b319
-	- fabric-rendering-v1 5.1.0+ab4c25a019
-	- fabric-resource-conditions-api-v1 4.3.0+8dc279b119
-	- fabric-resource-loader-v0 1.3.1+5b5275af19
-	- fabric-screen-api-v1 2.0.25+8b68f1c719
-	- fabric-screen-handler-api-v1 1.3.90+b559734419
-	- fabric-sound-api-v1 1.0.23+6573ed8c19
-	- fabric-transfer-api-v1 5.4.3+c24bd99419
-	- fabric-transitive-access-wideners-v1 6.2.0+45b9699719
-	- fabricloader 0.18.0
-	- gumrockets 1.0
-	- java 23
-	- minecraft 1.21.1
-	- mixinextras 0.5.0
-[22:42:32] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/gummy/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/80fc3a9f592673cea87f4cd702f87991c6c9fe4d/sponge-mixin-0.16.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
-[22:42:32] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[22:42:32] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[22:42:32] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
-[22:42:33] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0).
-[22:42:34] [Datafixer Bootstrap/INFO] (Minecraft) 226 Datafixer optimizations took 240 milliseconds
-[22:42:38] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[22:42:38] [Render thread/INFO] (Minecraft) Setting user: Player188
-[22:42:38] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
-[22:42:38] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
-[22:42:39] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
-[22:42:39] [Worker-Main-8/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
-[22:42:39] [Worker-Main-7/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
-[22:42:39] [Worker-Main-10/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
-[22:42:39] [Worker-Main-10/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
-[22:42:40] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
-[22:42:40] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[22:42:41] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
-[22:42:41] [Render thread/INFO] (Minecraft) Sound engine started
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
-[22:42:41] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
-[22:42:41] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[22:42:45] [Worker-Main-3/ERROR] (Minecraft) Couldn't parse element minecraft:loot_table/gumrockets:grant_book_on_achievement - Failed to parse either. First: Unknown registry key in ResourceKey[minecraft:root / minecraft:loot_function_type]: minecraft:set_nbt; Second: Not a json array: {"function":"set_nbt","tag":"{\"patchouli:book\": \"gumrockets:aerospace_guide\"}"}; Unknown registry key in ResourceKey[minecraft:root / minecraft:item]: patchouli:guide_book
-[22:42:45] [Render thread/INFO] (Minecraft) Loaded 1302 recipes
-[22:42:45] [Render thread/INFO] (Minecraft) Loaded 1399 advancements
-[22:42:46] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 935.9 μs
-[22:42:46] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.1
-[22:42:46] [Server thread/INFO] (Minecraft) Generating keypair
-[22:42:46] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
-[22:42:46] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
-[22:42:46] [Render thread/INFO] (Minecraft) Time elapsed: 211 ms
-[22:42:46] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
-[22:42:46] [Server thread/INFO] (Minecraft) Changing simulation distance to 32, from 0
-[22:42:47] [Server thread/INFO] (Minecraft) Player188[local:E:0a404b92] logged in with entity id 1 at (-71.21882446336693, -60.0, 236.4826435677856)
-[22:42:47] [Server thread/INFO] (Minecraft) Player188 joined the game
-[22:42:47] [Server thread/INFO] (Minecraft) Player188 has made the advancement [Acquire Hardware]
-[22:42:47] [Render thread/INFO] (Minecraft) [System] [CHAT] Player188 has made the advancement [Acquire Hardware]
-[22:42:47] [Render thread/INFO] (Minecraft) Loaded 114 advancements
-[22:43:03] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 500.1429311811945
-[22:43:15] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[22:43:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22:43:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22:43:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22:43:38] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[22:43:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22:43:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22:43:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22:47:29] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
-[22:47:29] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
-[22:47:29] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
-[22:47:29] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
-[22:47:29] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
-[22:47:29] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
-[22:47:29] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
-[22:47:29] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
-[22:47:48] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
-[22:47:48] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
-[22:47:48] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
-[22:47:48] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
-[22:50:12] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
-[22:50:12] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
-[22:50:12] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
-[22:50:12] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
-[22:50:12] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
-[22:50:12] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
-[22:50:12] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
-[22:50:12] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
-[22:50:17] [Server thread/INFO] (Minecraft) Saving and pausing game...
-[22:50:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22:50:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22:50:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22:50:18] [Server thread/INFO] (Minecraft) Player188 lost connection: Disconnected
-[22:50:18] [Server thread/INFO] (Minecraft) Player188 left the game
-[22:50:18] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
-[22:50:18] [Server thread/INFO] (Minecraft) Stopping server
-[22:50:18] [Server thread/INFO] (Minecraft) Saving players
-[22:50:18] [Server thread/INFO] (Minecraft) Saving worlds
-[22:50:18] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22:50:18] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22:50:18] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22:50:18] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World): All chunks are saved
-[22:50:18] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22:50:18] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22:50:18] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
-[22:50:19] [Render thread/INFO] (Minecraft) Stopping!
+[00:05:15] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:05:15] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:05:15] [Worker-Main-15/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:05:15] [Worker-Main-18/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:05:15] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:05:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:05:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:05:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:05:15] [Worker-Main-12/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:05:15] [Worker-Main-12/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:05:17] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:05:17] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:05:17] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:05:17] [Render thread/INFO] (Minecraft) Sound engine started
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:05:17] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:05:17] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:06:21] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:06:21] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:06:21] [Worker-Main-30/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:06:21] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:06:21] [Worker-Main-32/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:06:21] [Worker-Main-23/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:06:21] [Worker-Main-23/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:06:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:06:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:06:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:06:22] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:06:22] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:06:22] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:06:22] [Render thread/INFO] (Minecraft) Sound engine started
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:06:22] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:06:22] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:06:25] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:06:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:06:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:06:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:06:38] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:06:38] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:06:38] [Worker-Main-28/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:06:38] [Worker-Main-24/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:06:38] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:06:38] [Worker-Main-30/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:06:38] [Worker-Main-30/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:06:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:06:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:06:38] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:06:39] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:06:39] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:06:39] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:06:39] [Render thread/INFO] (Minecraft) Sound engine started
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:06:39] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:06:39] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:06:43] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:06:43] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:06:43] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:06:43] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:09:20] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:09:20] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:09:20] [Worker-Main-41/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:09:20] [Worker-Main-43/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:09:20] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:09:20] [Worker-Main-35/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:09:20] [Worker-Main-35/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:09:20] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:09:20] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:09:20] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:09:21] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:09:21] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:09:21] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:09:21] [Render thread/INFO] (Minecraft) Sound engine started
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:09:21] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:09:21] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:09:25] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:09:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:09:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:09:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:11:13] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:11:13] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:11:13] [Worker-Main-47/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:11:13] [Worker-Main-45/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:11:13] [Worker-Main-54/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:11:13] [Worker-Main-54/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:11:13] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:11:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:11:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:11:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:11:13] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:11:13] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:11:13] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:11:13] [Render thread/INFO] (Minecraft) Sound engine started
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:11:13] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:11:13] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:11:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:11:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:11:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:11:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:13:17] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:13:17] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:13:17] [Worker-Main-66/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:13:17] [Worker-Main-59/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:13:17] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:13:17] [Worker-Main-64/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:13:17] [Worker-Main-64/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:13:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:13:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:13:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:13:18] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:13:18] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:13:18] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:13:18] [Render thread/INFO] (Minecraft) Sound engine started
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:13:18] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:13:18] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:13:21] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:13:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:13:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:13:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:13:58] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:13:58] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:13:58] [Worker-Main-58/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:13:58] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:13:58] [Worker-Main-61/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:13:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:13:58] [Worker-Main-62/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:13:58] [Worker-Main-62/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:13:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:13:58] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:13:58] [Worker-Main-60/ERROR] (Minecraft) Failed to load model gumrockets:models/item/basic_launch_kit.json
+com.google.gson.JsonParseException: BlockBench/Basic Launch Kit/basic_launch_kit_texture is not valid resource location
+	at knot/net.minecraft.client.render.model.json.JsonUnbakedModel$Deserializer.resolveReference(JsonUnbakedModel.java:360) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.client.render.model.json.JsonUnbakedModel$Deserializer.texturesFromJson(JsonUnbakedModel.java:347) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.client.render.model.json.JsonUnbakedModel$Deserializer.deserialize(JsonUnbakedModel.java:308) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.client.render.model.json.JsonUnbakedModel$Deserializer.deserialize(JsonUnbakedModel.java:300) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:76) ~[gson-2.10.1.jar:?]
+	at knot/net.minecraft.util.JsonHelper.deserializeNullable(JsonHelper.java:432) ~[minecraft-common-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.util.JsonHelper.deserialize(JsonHelper.java:439) ~[minecraft-common-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.util.JsonHelper.deserialize(JsonHelper.java:491) ~[minecraft-common-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.client.render.model.json.JsonUnbakedModel.deserialize(JsonUnbakedModel.java:86) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at knot/net.minecraft.client.render.model.BakedModelManager.method_45898(BakedModelManager.java:105) ~[minecraft-clientOnly-48f5f74c97-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1812) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java) [?:?]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1804) [?:?]
+	at java.base/java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:507) [?:?]
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) [?:?]
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1458) [?:?]
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2034) [?:?]
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189) [?:?]
+[00:13:58] [Worker-Main-60/WARN] (Minecraft) Unable to load model: 'gumrockets:item/basic_launch_kit' referenced from: gumrockets:item/basic_launch_kit: java.io.FileNotFoundException: gumrockets:models/item/basic_launch_kit.json
+[00:13:58] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:13:58] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:13:58] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:13:58] [Render thread/INFO] (Minecraft) Sound engine started
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:13:59] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:13:59] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:14:02] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:14:02] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:14:02] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:14:02] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:14:05] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:14:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:14:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:14:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:14:42] [Render thread/INFO] (Minecraft) [System] [CHAT] [Debug]: Reloaded resource packs
+[00:14:42] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-renderer-registries-v1, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v0, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, gumrockets
+[00:14:42] [Worker-Main-65/INFO] (Minecraft) Found unifont_all_no_pua-15.1.05.hex, loading
+[00:14:42] [Worker-Main-56/INFO] (Minecraft) Found unifont_jp_patch-15.1.05.hex, loading
+[00:14:42] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:14:42] [Worker-Main-57/WARN] (Minecraft) File gumrocket:sounds/wooden_rocket_launch.ogg does not exist, cannot add it to event gumrockets:wooden_rocket_launch
+[00:14:42] [Worker-Main-57/WARN] (Minecraft) File gumrocket:sounds/basic_assemble.ogg does not exist, cannot add it to event gumrockets:basic_assemble
+[00:14:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:14:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:14:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:14:43] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[00:14:43] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[00:14:43] [Render thread/INFO] (Minecraft) OpenAL initialized on device Arctis Nova Pro Wireless Analog Stereo
+[00:14:43] [Render thread/INFO] (Minecraft) Sound engine started
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[00:14:43] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[00:14:43] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[00:15:03] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
+[00:15:03] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
+[00:15:03] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
+[00:15:03] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
+[00:15:07] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
+[00:15:07] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
+[00:15:07] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
+[00:15:07] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
+[00:15:07] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
+[00:15:07] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
+[00:15:29] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
+[00:15:35] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2728663265733
+[00:15:35] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.27294921875
+[00:15:35] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2742482475965
+[00:15:35] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.274169921875
+[00:15:35] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2256301678746
+[00:15:35] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.2255859375
+[00:15:35] [Server thread/INFO] (Minecraft) [STDOUT]: peaking: 674.1270120874076
+[00:15:35] [Render thread/INFO] (Minecraft) [STDOUT]: peaking: 674.126953125
+[00:15:39] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[00:15:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:15:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:15:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:15:40] [Server thread/INFO] (Minecraft) Player352 lost connection: Disconnected
+[00:15:40] [Server thread/INFO] (Minecraft) Player352 left the game
+[00:15:40] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[00:15:40] [Server thread/INFO] (Minecraft) Stopping server
+[00:15:40] [Server thread/INFO] (Minecraft) Saving players
+[00:15:40] [Server thread/INFO] (Minecraft) Saving worlds
+[00:15:40] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[00:15:40] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[00:15:40] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[00:15:40] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World): All chunks are saved
+[00:15:40] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[00:15:40] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[00:15:40] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[00:15:41] [Render thread/INFO] (Minecraft) Stopping!
