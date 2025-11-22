@@ -8,6 +8,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.damage.DamageEffects;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -284,10 +288,38 @@ public class RocketEntity extends Entity {
     @Override
     public boolean handleAttack(Entity attacker) {
         if(attacker instanceof PlayerEntity) {
-            this.kill();
+            destroy();
             return true;
         }
         return super.handleAttack(attacker);
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        if(source.getType().effects() == DamageEffects.BURNING) { // TODO or explosion
+            getWorld().createExplosion(
+                    this,
+                    getX(), getY(), getZ(),
+                    (float) getRocket().getMass() / 250,
+                    true,
+                    World.ExplosionSourceType.BLOCK
+            );
+            this.kill();
+        } else {
+            destroy();
+        }
+        return super.damage(source, amount);
+    }
+
+    private void destroy() {
+        this.kill();
+        float currentHeight = 0;
+        for (RocketStage stage : getRocket().getStages()) {
+            for (RocketPart part : stage.getParts()) {
+                dropStack(part.getBlock().getBlock().asItem().getDefaultStack(), (float) part.getOffset().getY() + currentHeight);
+            }
+            currentHeight += stage.getHeight();
+        }
     }
 
     public void addForce(float force) {
