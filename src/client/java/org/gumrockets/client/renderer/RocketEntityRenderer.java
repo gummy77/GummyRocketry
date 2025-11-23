@@ -31,8 +31,6 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
     private final BlockRenderManager blockRenderManager;
     private final TextRenderer textRenderer;
 
-    private float visibility = 0;
-
     public RocketEntityRenderer(EntityRendererFactory.Context context) {
         super(context);
         blockRenderManager = context.getBlockRenderManager();
@@ -72,16 +70,16 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
             }
             matrices.pop();
 
-            if((entity.IsPlayerWatching() || visibility > 0) && entity.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE) {
-                renderStatsText(entity, matrices, vertexConsumers, light, visibility);
+            if((entity.IsPlayerWatching() || entity.statsVisibility > 0) && entity.getRocket().getState().getLaunchState() == RocketState.LaunchState.IDLE) {
+                renderStatsText(entity, matrices, vertexConsumers, light, entity.statsVisibility);
             }
             if(entity.IsPlayerWatching()) {
-                visibility += 0.1f;
+                entity.statsVisibility += 0.1f;
             } else {
-                visibility -= 0.1f;
+                entity.statsVisibility -= 0.1f;
             }
 
-            visibility = MathHelper.clamp(visibility, 0, 1);
+            entity.statsVisibility = MathHelper.clamp(entity.statsVisibility, 0, 1);
 
             if (entity.getFuseHolder() != null) {
                 this.renderFuse(entity, tickDelta, matrices, vertexConsumers, entity.getFuseHolder());
@@ -141,7 +139,7 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
         matrices.pop();
 
         // Rocket Info
-        matrices.translate(0f, 2 * (rocketData.getHeight() / 3), 0f);
+        matrices.translate(0f,  (rocketData.getHeight() / 2) + 1f, 0f);
         matrices.push();
 
         matrices.multiply(dispatcher.camera.getRotation());

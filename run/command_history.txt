@@ -11,3 +11,6 @@
 /gamemode creative
 /gamemode survival
 /gamemode creative
+/gamemode sur
+/gamemode survival
+/gamemode creative

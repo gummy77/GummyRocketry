@@ -43,6 +43,7 @@ public class RocketEntity extends Entity {
 
     private boolean justAttached = false;
     private boolean hasPlayerInspecting = false;
+    public float statsVisibility = 0;
 
     public static final EntitySettings settings = new EntitySettings(
             "rocket_entity",
@@ -100,8 +101,9 @@ public class RocketEntity extends Entity {
             case COASTING -> {
                 this.updateRotation();
 
-                if(Math.abs(getVelocity().y) <= 0.1) {
-                    System.out.println("peaking: " + getPos().y);
+                if(getVelocity().y <= 0 && getWorld().isOutOfHeightLimit((int) getPos().getY())) {
+                    System.out.println("peaked: " + getPos().y);
+                    kill();
                 }
 
                 getWorld().addImportantParticle(ParticleRegistry.EXHAUST, true,
@@ -114,6 +116,9 @@ public class RocketEntity extends Entity {
         this.addVelocity(new Vec3d(0, -0.05f, 0));
         this.move(MovementType.SELF, this.getVelocity());
 
+        if(getWorld().isOutOfHeightLimit((int) getPos().getY())) {
+            this.addVelocity(new Vec3d(0.005f, 0, 0));
+        }
 
         super.tick();
 
@@ -284,11 +289,10 @@ public class RocketEntity extends Entity {
         }
     }
 
-
     @Override
     public boolean handleAttack(Entity attacker) {
         if(attacker instanceof PlayerEntity) {
-            destroy();
+            destroy(!((PlayerEntity) attacker).isCreative());
             return true;
         }
         return super.handleAttack(attacker);
@@ -306,19 +310,21 @@ public class RocketEntity extends Entity {
             );
             this.kill();
         } else {
-            destroy();
+            destroy( true);
         }
         return super.damage(source, amount);
     }
 
-    private void destroy() {
+    private void destroy(boolean doesDrop) {
         this.kill();
-        float currentHeight = 0;
-        for (RocketStage stage : getRocket().getStages()) {
-            for (RocketPart part : stage.getParts()) {
-                dropStack(part.getBlock().getBlock().asItem().getDefaultStack(), (float) part.getOffset().getY() + currentHeight);
+        if(doesDrop) {
+            float currentHeight = 0;
+            for (RocketStage stage : getRocket().getStages()) {
+                for (RocketPart part : stage.getParts()) {
+                    dropStack(part.getBlock().getBlock().asItem().getDefaultStack(), (float) part.getOffset().getY() + currentHeight);
+                }
+                currentHeight += stage.getHeight();
             }
-            currentHeight += stage.getHeight();
         }
     }
 
@@ -326,8 +332,6 @@ public class RocketEntity extends Entity {
         Vector3f accelerationVector = this.getRocket().getState().getRotation().transformUnit(new Vector3f(0, 1, 0));
         accelerationVector.mul(force / (rocket.getMass()));
         accelerationVector.div(20);
-
-        setRotation(getRocket().getState().getRotation().rotateLocalX(0.00025f * (float) Math.pow(getRocket().getTWR(), 3)));
 
         addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
     }
