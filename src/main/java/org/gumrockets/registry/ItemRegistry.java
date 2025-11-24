@@ -14,10 +14,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import org.gumrockets.component.PayloadTypes;
 import org.gumrockets.gumrocketsMain;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.item.Assembler;
 import org.gumrockets.item.LaunchKit;
+import org.gumrockets.item.PayloadItem;
 import org.gumrockets.item.RocketInspector;
 
 public class ItemRegistry {
@@ -41,8 +43,8 @@ public class ItemRegistry {
     public static final Item IRON_EXHAUST_NOZZLE = register("iron_exhaust_nozzle", new Item(new Item.Settings()));
 
     // Payloads
-    public static final Item EMPTY_PAYLOAD = register("payloads/empty_payload", new Item(new Item.Settings()));
-    public static final Item STARDUST_CATCHER = register("payloads/stardust_catcher_payload", new Item(new Item.Settings()));
+    public static final Item EMPTY_PAYLOAD = register("payloads/empty_payload", new PayloadItem(new Item.Settings(), PayloadTypes.EMPTY));
+    public static final Item STARDUST_CATCHER = register("payloads/stardust_catcher_payload", new PayloadItem(new Item.Settings(), PayloadTypes.STARDUST_CATCHER));
 
 
 

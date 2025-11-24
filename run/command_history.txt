@@ -14,3 +14,8 @@
 /gamemode sur
 /gamemode survival
 /gamemode creative
+/summon gumrockets:payload_entity
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative

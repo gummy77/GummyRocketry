@@ -18,6 +18,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -25,6 +27,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import org.gumrockets.component.*;
+import org.gumrockets.item.PayloadItem;
 import org.gumrockets.payload.UpdateRocketPayload;
 import org.gumrockets.registry.ComponentRegistry;
 import org.gumrockets.registry.EntityRegistry;
@@ -101,11 +104,6 @@ public class RocketEntity extends Entity {
             case COASTING -> {
                 this.updateRotation();
 
-                if(getVelocity().y <= 0 && getWorld().isOutOfHeightLimit((int) getPos().getY())) {
-                    System.out.println("peaked: " + getPos().y);
-                    kill();
-                }
-
                 getWorld().addImportantParticle(ParticleRegistry.EXHAUST, true,
                         getPos().x, getPos().y, getPos().z,
                         0, 0, 0
@@ -117,7 +115,13 @@ public class RocketEntity extends Entity {
         this.move(MovementType.SELF, this.getVelocity());
 
         if(getWorld().isOutOfHeightLimit((int) getPos().getY())) {
-            this.addVelocity(new Vec3d(0.005f, 0, 0));
+            this.addVelocity(new Vec3d(-0.005f, 0, 0));
+        }
+
+        if((getVelocity().y <= 0 && getWorld().isOutOfHeightLimit((int) getPos().getY())) || (getPos().y > getWorld().getHeight() * 2)) {
+
+            RocketPayload.FinishLaunch(getRocket(), getWorld());
+            kill();
         }
 
         super.tick();
@@ -254,10 +258,37 @@ public class RocketEntity extends Entity {
                     } else {
                         return ActionResult.FAIL;
                     }
+                } else if (stackInHand.getItem().getClass() == PayloadItem.class) {
+                    if(rocket.getPayloadType() == PayloadTypes.NONE) {
+                        PayloadItem payloadItem = (PayloadItem) stackInHand.getItem();
+                        stackInHand.decrement(1);
+                        rocket.setPayloadType(payloadItem.getPayloadType());
+
+                        for(int i = 0; i < 10; i ++){
+                            getWorld().addImportantParticle(ParticleTypes.HAPPY_VILLAGER, true,
+                                    getPos().x, getPos().y + rocket.getHeight(), getPos().z,
+                                    0, 0, 0
+                            );
+                        }
+                    }
                 }
             } else {
                 if (getFuseHolder() == player) {
                     detachFuse(!player.getAbilities().creativeMode);
+                }
+            }
+        } else {
+            ItemStack stackInHand = player.getStackInHand(hand);
+            if(stackInHand != null) {
+                if (stackInHand.getItem().getClass() == PayloadItem.class) {
+                    if (rocket.getPayloadType() == PayloadTypes.NONE) {
+                        for (int i = 0; i < 10; i++) {
+                            getWorld().addImportantParticle(ParticleTypes.HAPPY_VILLAGER, true,
+                                    getPos().x + random.nextDouble() - 0.5f, getPos().y + rocket.getHeight() - random.nextDouble(), getPos().z + random.nextDouble() - 0.5f,
+                                    0, 0, 0
+                            );
+                        }
+                    }
                 }
             }
         }

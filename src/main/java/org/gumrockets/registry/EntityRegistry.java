@@ -9,14 +9,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.gumrockets.gumrocketsMain;
-import org.gumrockets.entity.EntitySettings;
-import org.gumrockets.entity.RocketEntity;
-import org.gumrockets.entity.StageEntity;
+import org.gumrockets.entity.*;
 
 public class EntityRegistry {
 
     public static EntityType<RocketEntity> ROCKET_ENTITY = registerEntity("rocket_entity", RocketEntity::new, RocketEntity.settings);
     public static EntityType<StageEntity> STAGE_ENTITY = registerEntity("stage_entity", StageEntity::new, StageEntity.settings);
+
+    public static EntityType<PayloadEntity> PAYLOAD_ENTITY = registerEntity("payload_entity", PayloadEntity::new, PayloadEntity.settings);
 
 
     public static void initializeRegistry() {

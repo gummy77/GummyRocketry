@@ -3,6 +3,7 @@ package org.gumrockets.component;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.dynamic.Codecs;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +12,25 @@ public class Rocket {
     private final ArrayList<RocketStage> stages;
     private RocketState state;
 
-    private int fuseHolderID = 0;
+    private PayloadTypes payloadType;
+    private Vec3d launchPosition;
 
+    private int fuseHolderID = 0;
     private float cachedWidth = 0;
 
-    public Rocket(ArrayList<RocketStage> stages) {
+    public Rocket(ArrayList<RocketStage> stages, Vec3d launchPosition) {
         this.stages = stages;
         this.state = new RocketState(RocketState.LaunchState.IDLE);
         this.cachedWidth = 0;
+        this.launchPosition = launchPosition;
+        this.payloadType = PayloadTypes.NONE;
     }
-    public Rocket(List<RocketStage> stages, RocketState state, int fuseHolderID) {
+    public Rocket(List<RocketStage> stages, RocketState state, int fuseHolderID, Vec3d launchPosition, String payloadTypeString) {
         this.stages = new ArrayList<>(stages);
         this.state = state;
         this.fuseHolderID = fuseHolderID;
+        this.launchPosition = launchPosition;
+        this.payloadType = PayloadTypes.valueOf(payloadTypeString);
     }
 
     public void createNewState() {
@@ -33,6 +40,13 @@ public class Rocket {
     }
     public RocketState getState() {
         return this.state;
+    }
+
+    public Vec3d getLaunchPosition() {
+        return launchPosition;
+    }
+    public void setLaunchPosition(Vec3d launchPosition) {
+        this.launchPosition = launchPosition;
     }
 
     public float getWidth() {
@@ -76,6 +90,16 @@ public class Rocket {
         return thrust / mass;
     }
 
+    public void setPayloadType(PayloadTypes payloadType) {
+        this.payloadType = payloadType;
+    }
+    public PayloadTypes getPayloadType() {
+        return this.payloadType;
+    }
+    public String getPayloadTypeString() {
+        return this.payloadType.toString();
+    }
+
     public int getFuseHolderID() {
         return this.fuseHolderID;
     }
@@ -97,6 +121,8 @@ public class Rocket {
             builder.group(
                     Codecs.nonEmptyList(RocketStage.CODEC.listOf()).fieldOf("stages").forGetter(Rocket::getStages),
                     RocketState.CODEC.fieldOf("state").forGetter(Rocket::getState),
-                    Codec.INT.fieldOf("fuseHolderID").forGetter(Rocket::getFuseHolderID)
+                    Codec.INT.fieldOf("fuseHolderID").forGetter(Rocket::getFuseHolderID),
+                    Vec3d.CODEC.fieldOf("launchPosition").forGetter(Rocket::getLaunchPosition),
+                    Codec.STRING.fieldOf("payloadType").forGetter(Rocket::getPayloadTypeString)
             ).apply(builder, Rocket::new));
 }

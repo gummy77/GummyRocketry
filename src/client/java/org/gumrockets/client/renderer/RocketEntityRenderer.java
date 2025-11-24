@@ -13,11 +13,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
-import org.gumrockets.component.Rocket;
-import org.gumrockets.component.RocketState;
+import org.gumrockets.component.*;
 import org.gumrockets.gumrocketsMain;
-import org.gumrockets.component.RocketPart;
-import org.gumrockets.component.RocketStage;
 import org.gumrockets.entity.RocketEntity;
 import org.joml.Matrix4f;
 import org.joml.Quaterniond;
@@ -172,10 +169,10 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
         text = "Orbital: " + (orbital ? "" : " "); // TODO when physics math stuff sorted out.
         textRenderer.draw(text, text.length() * -5, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
         textRenderer.draw((orbital ? "yes" : "no"), -10, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-        boolean payload = false;
-        text = "Payload:  " + (payload ? "" : " "); // TODO when physics math stuff sorted out.
+        boolean payload = rocketData.getPayloadType() != PayloadTypes.NONE;
+        text = "Payload:  " + (payload ? "  " : " "); // TODO when physics math stuff sorted out.
         textRenderer.draw(text, text.length() * -5, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-        textRenderer.draw((payload ? "yes" : "no"), -10, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw((payload ? "yes" : "no"), (payload ? -15 : -10), 45f, (payload ? Colors.GREEN : textColour), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
 
 
         matrices.pop();

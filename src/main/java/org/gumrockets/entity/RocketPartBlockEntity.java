@@ -89,7 +89,7 @@ public class RocketPartBlockEntity extends BlockEntity {
         }
 
         // create NBT save data for rocket
-        Rocket rocketData = new Rocket(stages);
+        Rocket rocketData = new Rocket(stages, lowestBlock.toBottomCenterPos());
         NbtCompound nbt = new NbtCompound();
 
         DataResult<NbtElement> dataResult = Rocket.CODEC.encodeStart(NbtOps.INSTANCE, rocketData);

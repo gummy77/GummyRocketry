@@ -5,6 +5,7 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.GlobalPos;
 import org.gumrockets.client.item.PayloadCompassAnglePredicateProvider;
+import org.gumrockets.client.registry.ModelRegistry;
 import org.gumrockets.client.registry.ParticleRegistry;
 import org.gumrockets.component.PayloadCompassComponent;
 import org.gumrockets.item.PayloadCompass;
@@ -20,6 +21,8 @@ public class gumrocketsMainClient implements ClientModInitializer {
         org.gumrockets.client.ClientNetworkHandler.initialize();
         org.gumrockets.client.registry.EntityRendererRegistry.initializeRegistry();
         ParticleRegistry.initializeRegistry();
+
+        ModelRegistry.registerModels();
 
         registerModelPredicateProviders();
     }
