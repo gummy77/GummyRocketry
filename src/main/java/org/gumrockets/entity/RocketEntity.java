@@ -261,7 +261,9 @@ public class RocketEntity extends Entity {
                 } else if (stackInHand.getItem().getClass() == PayloadItem.class) {
                     if(rocket.getPayloadType() == PayloadTypes.NONE) {
                         PayloadItem payloadItem = (PayloadItem) stackInHand.getItem();
-                        stackInHand.decrement(1);
+                        if(!player.isCreative()) {
+                            stackInHand.decrement(1);
+                        }
                         rocket.setPayloadType(payloadItem.getPayloadType());
 
                         for(int i = 0; i < 10; i ++){
@@ -270,6 +272,7 @@ public class RocketEntity extends Entity {
                                     0, 0, 0
                             );
                         }
+                        return ActionResult.success(true);
                     }
                 }
             } else {
