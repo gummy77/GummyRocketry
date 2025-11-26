@@ -15,6 +15,7 @@ public class RocketStage {
     private float cachedWidth = 0;
     private float cachedThrust = 0;
     private float cachedMass = 0;
+    private float cachedDeltaV = 0;
 
     public RocketStage() {
         this.parts = new ArrayList<>();
@@ -82,6 +83,15 @@ public class RocketStage {
         }
         this.cachedThrust = thrust;
         return this.cachedThrust;
+    }
+
+    public float getDeltaV() {
+        if (this.cachedDeltaV != 0) return this.cachedDeltaV;
+
+        float deltaV = (getThrust() / getMass()) * getBurnTimeRemaining();
+
+        this.cachedDeltaV = deltaV;
+        return this.cachedDeltaV;
     }
 
     public static Codec<RocketStage> CODEC = RecordCodecBuilder.create(builder ->
