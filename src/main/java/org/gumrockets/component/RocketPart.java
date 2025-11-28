@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.Vec3d;
 import org.gumrockets.component.rocketpartcomponents.EngineComponent;
 import org.gumrockets.component.rocketpartcomponents.FuelComponent;
+import org.gumrockets.component.rocketpartcomponents.PayloadCarrierComponent;
 
 import java.util.Optional;
 
@@ -17,30 +18,33 @@ public class RocketPart implements Cloneable {
 
     private float mass;
 
+    private PayloadCarrierComponent payloadCarrierComponent;
     private EngineComponent engineComponent;
     private FuelComponent fuelComponent;
 
     private Vec3d offset;
 
-    private RocketPart(BlockState block, String material, String partType, int width, float mass, EngineComponent engineComponent, FuelComponent fuelComponent, Vec3d offset) {
+    private RocketPart(BlockState block, String material, String partType, int width, float mass, PayloadCarrierComponent payloadCarrierComponent, EngineComponent engineComponent, FuelComponent fuelComponent, Vec3d offset) {
         this.block = block;
         this.material = PartMaterial.valueOf(material);
         this.type = PartType.valueOf(partType);
         this.width = width;
         this.mass = mass;
 
+        this.payloadCarrierComponent = payloadCarrierComponent;
         this.engineComponent = engineComponent;
         this.fuelComponent = fuelComponent;
         this.offset = offset;
     }
 
-    private RocketPart(BlockState block, String material, String partType, int width, float mass, Optional<EngineComponent> engineComponent, Optional<FuelComponent> fuelComponent, Vec3d offset) {
+    private RocketPart(BlockState block, String material, String partType, int width, float mass, Optional<PayloadCarrierComponent> payloadCarrierComponent, Optional<EngineComponent> engineComponent, Optional<FuelComponent> fuelComponent, Vec3d offset) {
         this.block = block;
         this.material = PartMaterial.valueOf(material);
         this.type = PartType.valueOf(partType);
         this.width = width;
         this.mass = mass;
 
+        payloadCarrierComponent.ifPresent(component -> this.payloadCarrierComponent = component);
         engineComponent.ifPresent(component -> this.engineComponent = component);
         fuelComponent.ifPresent(component -> this.fuelComponent = component);
 
@@ -54,6 +58,7 @@ public class RocketPart implements Cloneable {
         this.width = builder.width;
         this.mass = builder.mass;
 
+        this.payloadCarrierComponent = builder.payloadCarrierComponent;
         this.engineComponent = builder.engineComponent;
         this.fuelComponent = builder.fuelComponent;
 
@@ -70,9 +75,20 @@ public class RocketPart implements Cloneable {
     public PartType getType() { return this.type; }
     public int getWidth() { return this.width; }
 
-    public float getMass() { return this.mass; }
+    public float getMass() {
+        FuelComponent fuelComponent = this.fuelComponent;
+        if(fuelComponent != null) {
+            return this.mass + fuelComponent.getFuelWeight();
+        }
+        return this.mass;
+    }
+    public float getPartMass() {
+        return this.mass;
+    }
     public void setMass(float mass) { this.mass = mass; }
 
+    public PayloadCarrierComponent getPayloadCarrierComponent() { return payloadCarrierComponent; }
+    public Optional<PayloadCarrierComponent> getPayloadCarrierOptional() { return this.payloadCarrierComponent != null ? Optional.of(this.payloadCarrierComponent) : Optional.empty(); }
     public EngineComponent getEngineComponent() { return this.engineComponent; }
     public Optional<EngineComponent> getEngineOptional() { return this.engineComponent != null ? Optional.of(this.engineComponent) : Optional.empty(); }
     public FuelComponent getFuelComponent() { return this.fuelComponent; }
@@ -95,6 +111,7 @@ public class RocketPart implements Cloneable {
 
         private final float mass;
 
+        private PayloadCarrierComponent payloadCarrierComponent;
         private EngineComponent engineComponent = null;
         private FuelComponent fuelComponent = null;
 
@@ -106,6 +123,11 @@ public class RocketPart implements Cloneable {
             this.partType = partType;
             this.width = width;
             this.mass = mass;
+        }
+
+        public RocketPartBuilder addPayloadCarrierComponent(PayloadCarrierComponent payloadCarrierComponent) {
+            this.payloadCarrierComponent = payloadCarrierComponent;
+            return this;
         }
 
         public RocketPartBuilder addEngineComponent(EngineComponent engineComponent) {
@@ -140,7 +162,7 @@ public class RocketPart implements Cloneable {
 
     @Override
     public RocketPart clone() {
-        return new RocketPart(this.getBlock(), this.getMaterialString(), this.getTypeString(), this.getWidth(), this.getMass(), this.getEngineComponent(), this.getFuelComponent(), this.getOffset());
+        return new RocketPart(this.getBlock(), this.getMaterialString(), this.getTypeString(), this.getWidth(), this.getPartMass(), this.getPayloadCarrierComponent(), this.getEngineComponent(), this.getFuelComponent(), this.getOffset());
     }
 
     public static final Codec<RocketPart> CODEC = RecordCodecBuilder.create(builder ->
@@ -149,7 +171,8 @@ public class RocketPart implements Cloneable {
                     Codec.STRING.fieldOf("material").forGetter(RocketPart::getMaterialString),
                     Codec.STRING.fieldOf("partType").forGetter(RocketPart::getTypeString),
                     Codec.INT.fieldOf("width").forGetter(RocketPart::getWidth),
-                    Codec.FLOAT.fieldOf("mass").forGetter(RocketPart::getMass),
+                    Codec.FLOAT.fieldOf("mass").forGetter(RocketPart::getPartMass),
+                    PayloadCarrierComponent.CODEC.optionalFieldOf("payloadCarrierComponent").forGetter(RocketPart::getPayloadCarrierOptional),
                     EngineComponent.CODEC.optionalFieldOf("engineComponent").forGetter(RocketPart::getEngineOptional),
                     FuelComponent.CODEC.optionalFieldOf("fuelComponent").forGetter(RocketPart::getFuelOptional),
                     Vec3d.CODEC.fieldOf("offset").forGetter(RocketPart::getOffset)

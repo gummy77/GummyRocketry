@@ -19,3 +19,4 @@
 /gamemode creative
 /gamemode survival
 /gamemode creative
+/tp @a 0 0 0

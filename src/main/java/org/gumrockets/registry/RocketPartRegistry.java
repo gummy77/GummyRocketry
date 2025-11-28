@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.component.rocketpartcomponents.EngineComponent;
 import org.gumrockets.component.rocketpartcomponents.FuelComponent;
+import org.gumrockets.component.rocketpartcomponents.PayloadCarrierComponent;
 import org.gumrockets.item.RocketPartBlockItem;
 import org.gumrockets.gumrocketsMain;
 
@@ -22,21 +23,21 @@ public class RocketPartRegistry {
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.NOSE,
                             6, 25
-                    ).build());
+                    ).addPayloadCarrierComponent(new PayloadCarrierComponent(15f)).build());
             registerRocketPart("rocket/wooden/fuel_segment",
                     new RocketPart.RocketPartBuilder(
                             BlockRegistry.WOODEN_FUEL_SEGMENT.getDefaultState(),
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.FUEL,
-                            6, 100
-                    ).addFuelComponent(new FuelComponent(5f, 1f, 1f, 1f, FuelComponent.FuelType.SOLID)).build());
+                            6, 25
+                    ).addFuelComponent(new FuelComponent(25f, 175f, FuelComponent.FuelType.SOLID)).build());
             registerRocketPart("rocket/wooden/exhaust",
                     new RocketPart.RocketPartBuilder(
                             BlockRegistry.WOODEN_MOTOR.getDefaultState(),
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.ENGINE,
                             6, 50
-                    ).addEngineComponent(new EngineComponent(400f, 1, ParticleRegistry.EXHAUST)).build());
+                    ).addEngineComponent(new EngineComponent(2500f, 1, ParticleRegistry.EXHAUST)).build());
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }

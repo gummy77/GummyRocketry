@@ -22,6 +22,7 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.*;
@@ -119,7 +120,6 @@ public class RocketEntity extends Entity {
         }
 
         if((getVelocity().y <= 0 && getWorld().isOutOfHeightLimit((int) getPos().getY())) || (getPos().y > getWorld().getHeight() * 2)) {
-
             RocketPayload.FinishLaunch(getRocket(), getWorld());
             kill();
         }
@@ -236,10 +236,14 @@ public class RocketEntity extends Entity {
             ItemStack stackInHand = player.getStackInHand(hand);
             if (stackInHand != ItemStack.EMPTY) {
                 if (stackInHand.getItem() == ItemRegistry.PAYLOAD_COMPASS) {
+                    if(rocket.getPayloadType() == PayloadTypes.NONE) {
+                        player.sendMessage(Text.of("this rocket has no payload."), true);
+                        return ActionResult.FAIL;
+                    }
                     stackInHand.set(ComponentRegistry.PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE,
                             new PayloadCompassComponent(
-                                    GlobalPos.create(player.getWorld().getRegistryKey(),
-                                            player.getBlockPos()
+                                    GlobalPos.create(getWorld().getRegistryKey(),
+                                            getBlockPos().add((int) -getRocket().getDeltaVAtStage(0) / 2, 100, 0)
                                     ),
                                     this.getId()
                             )
@@ -261,6 +265,10 @@ public class RocketEntity extends Entity {
                 } else if (stackInHand.getItem().getClass() == PayloadItem.class) {
                     if(rocket.getPayloadType() == PayloadTypes.NONE) {
                         PayloadItem payloadItem = (PayloadItem) stackInHand.getItem();
+                        if(getRocket().getMaxPayloadWeight() < payloadItem.getPayloadWeight()) {
+                            player.sendMessage(Text.of("payload is too large for this rocket"), true);
+                            return ActionResult.FAIL;
+                        }
                         if(!player.isCreative()) {
                             stackInHand.decrement(1);
                         }
@@ -285,6 +293,11 @@ public class RocketEntity extends Entity {
             if(stackInHand != null) {
                 if (stackInHand.getItem().getClass() == PayloadItem.class) {
                     if (rocket.getPayloadType() == PayloadTypes.NONE) {
+                        PayloadItem payloadItem = (PayloadItem) stackInHand.getItem();
+                        if(getRocket().getMaxPayloadWeight() < payloadItem.getPayloadWeight()) {
+                            player.sendMessage(Text.of("Payload is too large for this rocket."), true);
+                            return ActionResult.FAIL;
+                        }
                         for (int i = 0; i < 10; i++) {
                             getWorld().addImportantParticle(ParticleTypes.HAPPY_VILLAGER, true,
                                     getPos().x + random.nextDouble() - 0.5f, getPos().y + rocket.getHeight() - random.nextDouble(), getPos().z + random.nextDouble() - 0.5f,
@@ -315,7 +328,7 @@ public class RocketEntity extends Entity {
 
                 System.out.println("Fuel: " + stage.getBurnTimeRemaining() + "s");
                 System.out.println("Thrust: " + stage.getParts().getFirst().getEngineComponent().getPower() + "N");
-                System.out.println("Mass: " + stage.getMass() + "kg");
+                System.out.println("Mass: " + stage.getCurrentMass() + "kg");
 
                 System.out.println(" ");
             }
@@ -351,7 +364,7 @@ public class RocketEntity extends Entity {
 
     private void destroy(boolean doesDrop) {
         this.kill();
-        if(doesDrop) {
+        if(doesDrop && getRocket() != null) {
             float currentHeight = 0;
             for (RocketStage stage : getRocket().getStages()) {
                 for (RocketPart part : stage.getParts()) {

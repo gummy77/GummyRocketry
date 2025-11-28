@@ -16,9 +16,10 @@ public class RocketPayload {
         switch (rocket.getPayloadType()) {
             case NONE -> { }
             case EMPTY, STARDUST_CATCHER -> {
-                SpawnReturnCapsule(rocket.getPayloadType(), world, rocket.getLaunchPosition());
+                SpawnReturnCapsule(rocket.getPayloadType(), world, rocket.getLaunchPosition().add(-rocket.getDeltaV()/2, 0, 0));
             }
         }
+        System.out.println("Launch Success");
     }
 
     public static void SpawnReturnCapsule(PayloadTypes type, World world, Vec3d spawnPos) {

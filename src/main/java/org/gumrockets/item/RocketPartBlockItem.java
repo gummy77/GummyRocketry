@@ -39,16 +39,12 @@ public class RocketPartBlockItem extends BlockItem {
         if (rocketPart != null) {
             tooltip.add(Text.of("§7Mass: §2" + rocketPart.getMass() + "kg"));
 
-//              if(rocketPart.getPayloadComponent() != null) {
-//                  tooltip.add(Text.of("§7Max Payload: §2" + rocketPart.maxPayloadCapacity + "kg"));
-//                  break;
+            if(rocketPart.getPayloadCarrierComponent() != null) {
+                tooltip.add(Text.of("§7Max Payload: §2" + rocketPart.getPayloadCarrierComponent().getMaxCarrySize() + "kg"));
+            }
             if (rocketPart.getFuelComponent() != null) {
-                tooltip.add(Text.of("§7Fuel: §2" + ((rocketPart.getFuelComponent().getCapactity() * rocketPart.getFuelComponent().getFillLevel()) * rocketPart.getFuelComponent().getBurnSpeed()) + "fU"));
+                tooltip.add(Text.of("§7Fuel: §2" + rocketPart.getFuelComponent().getCapactity() + "fU"));
                 tooltip.add(Text.of("§7Fuel Type: §2" + rocketPart.getFuelComponent().getFuelType().name()));
-                if (rocketPart.getFuelComponent().getBurnPower() != 1f)
-                    tooltip.add(Text.of("§7§o  Power Mod: §2x" + rocketPart.getFuelComponent().getBurnPower()));
-                if (rocketPart.getFuelComponent().getBurnSpeed() != 1f)
-                    tooltip.add(Text.of("§7§o  Speed Mod: §2x" + rocketPart.getFuelComponent().getBurnSpeed()));
             }
             if (rocketPart.getEngineComponent() != null) {
                 tooltip.add(Text.of("§7Thrust: §2" + (rocketPart.getEngineComponent().getPower()) + "N"));

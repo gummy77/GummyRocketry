@@ -7,6 +7,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+import net.minecraft.text.TextColor;
 import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -17,8 +18,6 @@ import org.gumrockets.component.*;
 import org.gumrockets.gumrocketsMain;
 import org.gumrockets.entity.RocketEntity;
 import org.joml.Matrix4f;
-import org.joml.Quaterniond;
-import org.joml.Quaternionf;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -91,12 +90,10 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
 
         int textColour = Colors.BLACK;
 
-        float totalDeltaV = 0;
-
         // Stage Info
         matrices.push();
-        for (int i = 0; i < rocketData.getStages().size(); i++) {
-            RocketStage stage = rocketData.getStages().get(i);
+        for (int stageIndex = 0; stageIndex < rocketData.getStages().size(); stageIndex++) {
+            RocketStage stage = rocketData.getStages().get(stageIndex);
             matrices.translate(0f, stage.getHeight(), 0f);
             matrices.push();
 
@@ -117,24 +114,17 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
             textRenderer.draw("/", 0, 0, Colors.ALTERNATE_WHITE, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
             matrices.pop();
 
-            textRenderer.draw("Stage " + i, 0f, 0f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw("Stage " + stageIndex, 0f, 0f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
             matrices.scale(0.8f, 0.8f, 0.8f);
 
-            float mass = 0;
-            for(int j = i; j < rocketData.getStages().size(); j++) {
-                mass += rocketData.getStages().get(j).getMass();
-            }
-
-            textRenderer.draw("Stage Mass: " + stage.getMass() + "kg", 0f, 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-            textRenderer.draw("Rocket Mass at Stage: " + mass + "kg", 0f, 25f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw("Stage Mass: " + stage.getCurrentMass() + "kg", 0f, 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw("Rocket Mass at Stage: " + rocketData.getMassAtStage(stageIndex) + "kg", 0f, 25f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
             textRenderer.draw("Stage Thrust: " + stage.getThrust() + "N", 0f, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
             textRenderer.draw("Burn Time " + stage.getBurnTimeRemaining() + "s", 0f, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-            float TWR = (float) Math.round((stage.getThrust() / mass) * 100) / 100;
+            float TWR = (float) Math.round(rocketData.getTWRAtStage(stageIndex) * 100) / 100;
             textRenderer.draw("Stage TWR: " + TWR, 0f, 55f, (TWR > 1 ? textColour : Colors.RED), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-            float deltaV = (float) Math.round((TWR * stage.getBurnTimeRemaining()) * 100) / 100;
+            float deltaV = (float) Math.round(rocketData.getDeltaVAtStage(stageIndex) * 100) / 100;
             textRenderer.draw("Stage Delta V: " + deltaV + "m/s", 0f, 65f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-
-            totalDeltaV += deltaV;
 
             matrices.pop();
         }
@@ -151,11 +141,7 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
 
         matrices.scale(0.03f, -0.03f, 0.03f);
 
-        matrices.push();
-        matrices.translate(-85, 0, -1);
-        matrices.scale(18f, 6f, 10f);
-        textRenderer.draw(" ", 0, 0, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Colors.ALTERNATE_WHITE, light);
-        matrices.pop();
+
 
         matrices.push();
         matrices.scale(3f, 2f, 1f);
@@ -163,27 +149,45 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
         textRenderer.draw("\\", 0, 0, Colors.ALTERNATE_WHITE, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
         matrices.pop();
 
+        matrices.push();
+        float textPosition = 0;
+
         String text = "Rocket Stats";
-        textRenderer.draw(text, text.length() * -5, 0f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw(text, text.length() * -5, textPosition, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
         matrices.scale(0.8f, 0.8f, 0.8f);
         text = "Stages: " + rocketData.getStages().size();
-        textRenderer.draw(text, text.length() * -5, 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw(text, text.length() * -5, textPosition += 15f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
         text = "Total Mass: " + rocketData.getMass() + "kg";
-        textRenderer.draw(text, text.length() * -5, 25f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw(text, text.length() * -5, textPosition += 10f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
 
-        text = "Total Delta V: " + ((float) Math.round(totalDeltaV * 100f) / 100f) + "m/s";
-        textRenderer.draw(text, text.length() * -5, 35f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        float deltaV = ((float) Math.round(rocketData.getDeltaV() * 100f) / 100f);
+        text = "Total Delta V: " + deltaV + "m/s";
+        textRenderer.draw(text, text.length() * -5, textPosition += 10f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
 
+        float height = Rocket.calculateHeightFromDeltaV(deltaV);
+        if(height < 100000) {
+            text = "Est. Apogee: " + ((float) Math.round(height / 100f) / 10) + "km";
+            textRenderer.draw(text, text.length() * -5, textPosition += 10f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        } else {
+            text = "Reaches Space";
+            textRenderer.draw(text, text.length() * -5.5f, textPosition += 10f, Colors.GREEN, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
 
-        boolean orbital = false;
-        text = "Orbital: " + (orbital ? "" : " "); // TODO when physics math stuff sorted out.
-        textRenderer.draw(text, text.length() * -5, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-        textRenderer.draw((orbital ? "yes" : "no"), -10, 45f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            boolean orbital = false;
+            text = "Orbital: " + (orbital ? "" : " "); // TODO when physics math stuff sorted out.
+            textRenderer.draw(text, text.length() * -5, textPosition += 10f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+            textRenderer.draw((orbital ? "yes" : "no"), -10, textPosition, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        }
         boolean payload = rocketData.getPayloadType() != PayloadTypes.NONE;
-        text = "Payload:  " + (payload ? "  " : " "); // TODO when physics math stuff sorted out.
-        textRenderer.draw(text, text.length() * -5, 55f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
-        textRenderer.draw((payload ? "yes" : "no"), (payload ? -15 : -10), 55f, (payload ? Colors.GREEN : textColour), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        text = "Payload:  " + (payload ? "  " : " ");
+        textRenderer.draw(text, text.length() * -5, textPosition += 10f, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        textRenderer.draw((payload ? "yes" : "no"), (payload ? -15 : -10), textPosition, (payload ? Colors.GREEN : textColour), false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Color.TRANSLUCENT, light);
+        matrices.pop();
 
+        matrices.push();
+        matrices.translate(-85, 0, -1);
+        matrices.scale(18f, (textPosition / 10) + 1, 10f);
+        textRenderer.draw(" ", 0, 0, textColour, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, Colors.ALTERNATE_WHITE, light);
+        matrices.pop();
 
         matrices.pop();
 

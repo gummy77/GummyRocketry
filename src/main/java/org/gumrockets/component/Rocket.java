@@ -3,6 +3,7 @@ package org.gumrockets.component;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.dynamic.Codecs;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
@@ -73,12 +74,46 @@ public class Rocket {
         return height;
     }
 
+    public float getMaxPayloadWeight() {
+        float maxWeight = 0;
+        for (RocketStage stage : stages) {
+            for (RocketPart part : stage.getParts()) {
+                if(part.getPayloadCarrierComponent() != null) {
+                    maxWeight += part.getPayloadCarrierComponent().getMaxCarrySize();
+                }
+            }
+        }
+        return maxWeight;
+    }
+
     public float getMass() {
-        int mass = 0;
-        int stageCounter = Math.min(this.state.getCurrentStage(), this.stages.size()-1);
+        return getMassAtStage(this.state.getCurrentStage());
+    }
+
+    public float getMassAtStage(int stageIndex) {
+        float mass = 0;
+        int stageCounter = Math.min(stageIndex, this.stages.size()-1);
         for (int i = stageCounter; i < this.stages.size(); i++) {
             RocketStage stage = this.stages.get(i);
-            mass += stage.getMass();
+            mass += stage.getCurrentMass();
+        }
+        return mass;
+    }
+    public float getFuelMassAtStage(int stageIndex) {
+        float mass = 0;
+        int stageCounter = Math.min(stageIndex, this.stages.size());
+        for (int i = stageCounter; i < this.stages.size(); i++) {
+            RocketStage stage = this.stages.get(i);
+            mass += stage.getFuelMass();
+        }
+        return mass;
+    }
+    public float getEmptyMassAtStage(int stageIndex) {
+        float mass = 0;
+        int stageCounter = Math.min(stageIndex, this.stages.size()-1);
+        for (int i = stageCounter; i < this.stages.size(); i++) {
+            RocketStage stage = this.stages.get(i);
+            mass += stage.getPartMass();
         }
         return mass;
     }
@@ -88,6 +123,39 @@ public class Rocket {
         float thrust = this.getCurrentStage().getThrust();
 
         return thrust / mass;
+    }
+
+    public float getTWRAtStage(int stageIndex) {
+        float mass = getMassAtStage(stageIndex);
+        float thrust = this.getStages().get(stageIndex).getThrust();
+
+        return thrust / mass;
+    }
+
+    public float getDeltaV() {
+        float totalDeltaV = 0;
+        for (int stageIndex = 0; stageIndex < this.stages.size(); stageIndex++) {
+            totalDeltaV += getDeltaVAtStage(stageIndex);
+        }
+        return totalDeltaV;
+    }
+
+    public float getDeltaVAtStage(int stageIndex) {
+        float thrust = this.getStages().get(stageIndex).getThrust();
+        float fuelMass = this.getStages().get(stageIndex).getFuelMass();
+        float rocketMass = getEmptyMassAtStage(stageIndex) + getFuelMassAtStage(stageIndex + 1);
+        float burnTime = this.getStages().get(stageIndex).getBurnTime();
+
+        float a = calculateFlightIntegral(thrust, burnTime, fuelMass, rocketMass, 0);
+        float b = calculateFlightIntegral(thrust, burnTime, fuelMass, rocketMass, burnTime);
+
+        return b - a;
+    }
+    float calculateFlightIntegral(float thrust, float burnTime, float fuelMass, float rocketMass, float t) {
+        return (float) (thrust * burnTime * Math.log(Math.abs((fuelMass * t) + (burnTime * rocketMass)))) / fuelMass;
+    }
+    public static float calculateHeightFromDeltaV(float deltaV) {
+        return (float) (0.2 * Math.pow(deltaV, 1.8)) + deltaV;
     }
 
     public void setPayloadType(PayloadTypes payloadType) {

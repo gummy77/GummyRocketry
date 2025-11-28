@@ -43,8 +43,8 @@ public class ItemRegistry {
     public static final Item IRON_EXHAUST_NOZZLE = register("iron_exhaust_nozzle", new Item(new Item.Settings()));
 
     // Payloads
-    public static final Item EMPTY_PAYLOAD = register("payloads/empty_payload", new PayloadItem(new Item.Settings(), PayloadTypes.EMPTY));
-    public static final Item STARDUST_CATCHER = register("payloads/stardust_catcher_payload", new PayloadItem(new Item.Settings(), PayloadTypes.STARDUST_CATCHER));
+    public static final Item EMPTY_PAYLOAD = register("payloads/empty_payload", new PayloadItem(new Item.Settings(), PayloadTypes.EMPTY, 5));
+    public static final Item STARDUST_CATCHER = register("payloads/stardust_catcher_payload", new PayloadItem(new Item.Settings(), PayloadTypes.STARDUST_CATCHER, 10));
 
 
 

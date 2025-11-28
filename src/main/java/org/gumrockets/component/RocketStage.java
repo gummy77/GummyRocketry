@@ -10,28 +10,46 @@ import java.util.List;
 
 public class RocketStage {
     private final ArrayList<RocketPart> parts;
+    private float burnTime;
     private float burnTimeRemaining;
 
+    private float cachedMass = 0;
+    private float cachedFuelMass = 0;
     private float cachedWidth = 0;
     private float cachedThrust = 0;
-    private float cachedMass = 0;
-    private float cachedDeltaV = 0;
 
     public RocketStage() {
         this.parts = new ArrayList<>();
     }
 
-    public RocketStage(List<RocketPart> rocketParts, float burnTimeRemaining) {
+    public RocketStage(List<RocketPart> rocketParts, float burnTime, float burnTimeRemaining) {
         this.parts = new ArrayList<>(rocketParts);
+        this.burnTime = burnTime;
         this.burnTimeRemaining = burnTimeRemaining;
     }
 
     public void calculateBurnTime() {
+        float totalBurnTime = 0f;
         for (RocketPart rocketPart : parts) {
             if (rocketPart.getFuelComponent() != null) {
-                this.burnTimeRemaining += ((rocketPart.getFuelComponent().getCapactity() * rocketPart.getFuelComponent().getFillLevel()) * rocketPart.getFuelComponent().getBurnSpeed());
+                totalBurnTime += rocketPart.getFuelComponent().getCapactity();
             }
         }
+        for (RocketPart rocketPart : parts) {
+            if (rocketPart.getEngineComponent() != null) {
+                totalBurnTime /= rocketPart.getEngineComponent().getFuelConsumption();
+            }
+        }
+        this.burnTime = totalBurnTime;
+        this.burnTimeRemaining = totalBurnTime;
+    }
+
+    public void setBurnTime(float burnTime) {
+        this.burnTime = burnTime;
+    }
+
+    public float getBurnTime() {
+        return burnTime;
     }
 
     public void setBurnTimeRemaining(float burnTimeRemaining) { this.burnTimeRemaining = burnTimeRemaining; }
@@ -62,14 +80,36 @@ public class RocketStage {
         this.cachedWidth = maxWidth / 16f;
         return this.cachedWidth;
     }
-    public float getMass() {
-        if (this.cachedMass != 0) return this.cachedMass;
-        float mass = 0;
+    public float getCurrentMass() {
+        float mass = getPartMass();
+        float fuelMass = 0;
         for (RocketPart part : this.getParts()) {
-            mass += part.getMass();
+            if(part.getFuelComponent() != null) {
+                fuelMass += part.getFuelComponent().getFuelWeight();
+            }
         }
-        this.cachedMass = mass;
+        float fuelLeftRatio = burnTimeRemaining / burnTime;
+        return mass + (fuelMass * fuelLeftRatio);
+    }
+    public float getPartMass() {
+        if (this.cachedMass != 0) return this.cachedMass;
+        float partMass = 0;
+        for (RocketPart part : this.getParts()) {
+            partMass += part.getPartMass();
+        }
+        this.cachedMass = partMass;
         return this.cachedMass;
+    }
+    public float getFuelMass() {
+        if (this.cachedFuelMass != 0) return this.cachedFuelMass;
+        float fuelMass = 0;
+        for (RocketPart part : this.getParts()) {
+            if(part.getFuelComponent() != null) {
+                fuelMass += part.getFuelComponent().getFuelWeight();
+            }
+        }
+        this.cachedFuelMass = fuelMass;
+        return this.cachedFuelMass;
     }
 
     public float getThrust() {
@@ -85,18 +125,10 @@ public class RocketStage {
         return this.cachedThrust;
     }
 
-    public float getDeltaV() {
-        if (this.cachedDeltaV != 0) return this.cachedDeltaV;
-
-        float deltaV = (getThrust() / getMass()) * getBurnTimeRemaining();
-
-        this.cachedDeltaV = deltaV;
-        return this.cachedDeltaV;
-    }
-
     public static Codec<RocketStage> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
                     Codecs.nonEmptyList(RocketPart.CODEC.listOf()).fieldOf("parts").forGetter(RocketStage::getParts),
+                    Codec.FLOAT.fieldOf("burnTime").forGetter(RocketStage::getBurnTime),
                     Codec.FLOAT.fieldOf("burnTimeRemaining").forGetter(RocketStage::getBurnTimeRemaining)
             ).apply(builder, RocketStage::new));
 }
