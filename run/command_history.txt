@@ -20,3 +20,16 @@
 /gamemode survival
 /gamemode creative
 /tp @a 0 0 0
+/summon gumrockets:payload_entity
+/summon gumrockets:payload_entity ~ 0 ~
+/summon gumrockets:payload_entity ~ 100 ~
+/summon gumrockets:payload_entity ~ -20 ~
+/summon gumrockets:payload_entity ~ -40 ~
+/summon gumrockets:payload_entity ~ -80 ~
+/summon gumrockets:payload_entity ~ -60 ~
+/summon gumrockets:payload_entity ~ -50 ~
+/summon gumrockets:payload_entity ~ -55 ~
+/
+/summon gumrockets:payload_entity ~ -55 ~
+/time set 2000
+/summon gumrockets:payload_entity ~ 100 ~

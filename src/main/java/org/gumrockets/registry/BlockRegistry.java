@@ -20,9 +20,25 @@ public class BlockRegistry {
     public static final RocketPartBlock WOODEN_MOTOR = (RocketPartBlock) register("rocket/wooden/exhaust",
             new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD)));
 
+    public static final RocketPartBlock COPPER_NOSE_CONE = (RocketPartBlock) register("rocket/copper/nose",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)));
+    public static final RocketPartBlock COPPER_FUEL_SEGMENT = (RocketPartBlock) register("rocket/copper/fuel_segment",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)));
+    public static final RocketPartBlock COPPER_MOTOR = (RocketPartBlock) register("rocket/copper/exhaust",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.COPPER)));
+
+    public static final RocketPartBlock IRON_NOSE_CONE = (RocketPartBlock) register("rocket/iron/nose",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)));
+    public static final RocketPartBlock IRON_FUEL_SEGMENT = (RocketPartBlock) register("rocket/iron/fuel_segment",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)));
+    public static final RocketPartBlock IRON_MOTOR = (RocketPartBlock) register("rocket/iron/exhaust",
+            new RocketPartBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)));
+
     public static BlockEntityType<RocketPartBlockEntity> ROCKET_PART_BLOCK_ENTITY = registerEntity("rocket_part_block_entity",
             BlockEntityType.Builder.create(RocketPartBlockEntity::new,
-                    WOODEN_NOSE_CONE, WOODEN_FUEL_SEGMENT, WOODEN_MOTOR
+                    WOODEN_NOSE_CONE, WOODEN_FUEL_SEGMENT, WOODEN_MOTOR,
+                    COPPER_NOSE_CONE, COPPER_FUEL_SEGMENT, COPPER_MOTOR,
+                    IRON_NOSE_CONE, IRON_FUEL_SEGMENT, IRON_MOTOR
             ).build());
 
     public static void initializeRegistry() {

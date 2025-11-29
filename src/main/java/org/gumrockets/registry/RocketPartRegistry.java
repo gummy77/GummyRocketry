@@ -17,6 +17,8 @@ public class RocketPartRegistry {
 
     public static void initializeRegistry() {
         try {
+            // -- WOOD --
+
             registerRocketPart("rocket/wooden/nose",
                     new RocketPart.RocketPartBuilder(
                             BlockRegistry.WOODEN_NOSE_CONE.getDefaultState(),
@@ -38,6 +40,54 @@ public class RocketPartRegistry {
                             RocketPart.PartType.ENGINE,
                             6, 50
                     ).addEngineComponent(new EngineComponent(2500f, 1, ParticleRegistry.EXHAUST)).build());
+
+            // -- COPPER --
+
+            registerRocketPart("rocket/copper/nose",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.COPPER_NOSE_CONE.getDefaultState(),
+                            RocketPart.PartMaterial.COPPER,
+                            RocketPart.PartType.NOSE,
+                            8, 60
+                    ).addPayloadCarrierComponent(new PayloadCarrierComponent(20f)).build());
+            registerRocketPart("rocket/copper/fuel_segment",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.COPPER_FUEL_SEGMENT.getDefaultState(),
+                            RocketPart.PartMaterial.COPPER,
+                            RocketPart.PartType.FUEL,
+                            8, 60
+                    ).addFuelComponent(new FuelComponent(35f, 175f, FuelComponent.FuelType.SOLID)).build());
+            registerRocketPart("rocket/copper/exhaust",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.COPPER_MOTOR.getDefaultState(),
+                            RocketPart.PartMaterial.COPPER,
+                            RocketPart.PartType.ENGINE,
+                            8, 120
+                    ).addEngineComponent(new EngineComponent(5000f, 1, ParticleRegistry.EXHAUST)).build());
+
+            // -- IRON --
+
+            registerRocketPart("rocket/iron/nose",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.IRON_NOSE_CONE.getDefaultState(),
+                            RocketPart.PartMaterial.IRON,
+                            RocketPart.PartType.NOSE,
+                            14, 100
+                    ).addPayloadCarrierComponent(new PayloadCarrierComponent(45f)).build());
+            registerRocketPart("rocket/iron/fuel_segment",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.IRON_FUEL_SEGMENT.getDefaultState(),
+                            RocketPart.PartMaterial.IRON,
+                            RocketPart.PartType.FUEL,
+                            14, 100
+                    ).addFuelComponent(new FuelComponent(50f, 255f, FuelComponent.FuelType.SOLID)).build());
+            registerRocketPart("rocket/iron/exhaust",
+                    new RocketPart.RocketPartBuilder(
+                            BlockRegistry.IRON_MOTOR.getDefaultState(),
+                            RocketPart.PartMaterial.IRON,
+                            RocketPart.PartType.ENGINE,
+                            14, 215
+                    ).addEngineComponent(new EngineComponent(7500f, 1, ParticleRegistry.EXHAUST)).build());
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }

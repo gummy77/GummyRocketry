@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "gumrockets:block/rocket/iron/fuel_segment" }
+  }
+}

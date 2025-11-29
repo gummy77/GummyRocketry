@@ -8,10 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.damage.DamageEffects;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -19,16 +17,17 @@ import net.minecraft.nbt.NbtOps;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import org.gumrockets.component.PayloadTypes;
-import org.gumrockets.component.Rocket;
 import org.gumrockets.payload.UpdatePayloadPayload;
-import org.gumrockets.payload.UpdateRocketPayload;
 import org.gumrockets.registry.ItemRegistry;
 
 public class PayloadEntity extends Entity {
 
     private PayloadTypes payloadType;
+
+    private float landTime = 0;
 
     public static final EntitySettings settings = new EntitySettings(
             "payload_entity",
@@ -51,8 +50,14 @@ public class PayloadEntity extends Entity {
     public void tick() {
         if(getWorld() instanceof ServerWorld) {
             networkUpdateData();
-        } else {
+        }
 
+        if(getYaw() == 0) {
+            setRotation((float) getRandom().nextFloat() * 360f, 0);
+        }
+
+        if(hasParachuteDeployed()) {
+            this.setVelocity(this.getVelocity().multiply(0.5f));
         }
 
         this.addVelocity(new Vec3d(0, -0.05f, 0));
@@ -67,6 +72,17 @@ public class PayloadEntity extends Entity {
 
     public void setPayloadType(PayloadTypes payloadType) {
         this.payloadType = payloadType;
+    }
+
+    public boolean hasParachuteDeployed() {
+        return getBlockPos().getY() - getWorld().getTopPosition(Heightmap.Type.MOTION_BLOCKING, getBlockPos()).getY() < 40;
+    }
+
+    public float getLandTime() {
+        return landTime;
+    }
+    public void setLandTime(float landTime) {
+        this.landTime = landTime;
     }
 
     @Override

@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "gumrockets:block/iron_rocket_texture",
+		"particle": "gumrockets:block/iron_rocket_texture"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 1],
+			"to": [14, 16, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0.25, 0, 3.25, 4], "texture": "#0"},
+				"east": {"uv": [0, 0, 3.5, 4], "texture": "#0"},
+				"south": {"uv": [0.25, 0, 3.25, 4], "texture": "#0"},
+				"west": {"uv": [0, 0, 3.5, 4], "texture": "#0"},
+				"up": {"uv": [3.25, 7.5, 0.25, 4], "texture": "#0"},
+				"down": {"uv": [3.25, 4, 0.25, 7.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14, 0, 2],
+			"to": [15, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.25, 4], "texture": "#0"},
+				"east": {"uv": [0.25, 0, 3.25, 4], "texture": "#0"},
+				"south": {"uv": [3.25, 0, 3.5, 4], "texture": "#0"},
+				"up": {"uv": [3.5, 7.25, 3.25, 4.25], "texture": "#0"},
+				"down": {"uv": [3.5, 4.25, 3.25, 7.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [1, 0, 2],
+			"to": [2, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.25, 0, 3.5, 4], "texture": "#0"},
+				"south": {"uv": [0, 0, 0.25, 4], "texture": "#0"},
+				"west": {"uv": [0.25, 0, 3.25, 4], "texture": "#0"},
+				"up": {"uv": [0.25, 7.25, 0, 4.25], "texture": "#0"},
+				"down": {"uv": [0.25, 4.25, 0, 7.25], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 1.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [0, 1.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 2.75, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 0.25, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"head": {
+			"translation": [0, 14.5, 0]
+		},
+		"fixed": {
+			"scale": [0.6, 0.6, 0.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "Fuel Segment",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}
