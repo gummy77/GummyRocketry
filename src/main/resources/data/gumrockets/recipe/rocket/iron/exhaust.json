@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " b ",
+    "ini"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "gumrockets:rocket/iron/fuel_segment"
+    },
+    "n": {
+      "item": "gumrockets:iron_exhaust_nozzle"
+    }
+  },
+  "result": {
+    "id": "gumrockets:rocket/iron/exhaust",
+    "count": 1
+  }
+}

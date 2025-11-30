@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "igi",
+    "ibi",
+    "igi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    },
+    "b": {
+      "item": "gumrockets:rocket/copper/fuel_segment"
+    }
+  },
+  "result": {
+    "id": "gumrockets:rocket/iron/fuel_segment",
+    "count": 1
+  }
+}

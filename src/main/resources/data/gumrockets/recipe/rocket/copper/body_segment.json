@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cgc",
+    "cbc",
+    "cgc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "g": {
+      "item": "minecraft:gunpowder"
+    },
+    "b": {
+      "item": "gumrockets:rocket/wooden/fuel_segment"
+    }
+  },
+  "result": {
+    "id": "gumrockets:rocket/copper/fuel_segment",
+    "count": 1
+  }
+}

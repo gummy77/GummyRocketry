@@ -379,6 +379,7 @@ public class RocketEntity extends Entity {
         Vector3f accelerationVector = this.getRocket().getState().getRotation().transformUnit(new Vector3f(0, 1, 0));
         accelerationVector.mul(force / (rocket.getMass()));
         accelerationVector.div(20);
+        accelerationVector.min(new Vector3f(0.2f));
 
         addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
     }

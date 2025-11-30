@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " b ",
+    "cnc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "b": {
+      "item": "gumrockets:rocket/copper/fuel_segment"
+    },
+    "n": {
+      "item": "gumrockets:iron_exhaust_nozzle"
+    }
+  },
+  "result": {
+    "id": "gumrockets:rocket/copper/exhaust",
+    "count": 1
+  }
+}
