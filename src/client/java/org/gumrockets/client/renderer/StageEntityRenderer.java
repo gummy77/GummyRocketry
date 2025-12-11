@@ -8,7 +8,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.entity.StageEntity;
 
@@ -51,6 +51,6 @@ public class StageEntityRenderer extends EntityRenderer<StageEntity> {
 
     @Override
     public Identifier getTexture(StageEntity entity) {
-        return Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/rocket.png");
+        return Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/rocket.png");
     }
 }

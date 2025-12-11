@@ -16,18 +16,25 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import org.gumrockets.component.PayloadTypes;
 import org.gumrockets.payload.UpdatePayloadPayload;
 import org.gumrockets.registry.ItemRegistry;
+import org.gumrockets.registry.SoundRegistry;
 
 public class PayloadEntity extends Entity {
 
     private PayloadTypes payloadType;
 
     private float landTime = 0;
+
+    private boolean hasPlayedDeployedSound = false;
+    private boolean hasPlayedLandingSound = false;
+
+    private float flapSoundTimer = 5f;
 
     public static final EntitySettings settings = new EntitySettings(
             "payload_entity",
@@ -57,8 +64,25 @@ public class PayloadEntity extends Entity {
         }
 
         if(hasParachuteDeployed()) {
+            if(!hasPlayedDeployedSound) {
+                getWorld().playSound(this, getBlockPos(), SoundRegistry.ENTITY_PARACHUTE_DEPLOY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                hasPlayedDeployedSound = true;
+            }
             this.setVelocity(this.getVelocity().multiply(0.5f));
         }
+
+        if(isOnGround()) {
+            if(!hasPlayedLandingSound) {
+                getWorld().playSound(this, getBlockPos(), SoundRegistry.ENTITY_PARACHUTE_LAND, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                hasPlayedLandingSound = true;
+            }
+        } /* else {
+            if(flapSoundTimer <= 0) {
+                getWorld().playSound(this, getBlockPos(), SoundRegistry.ENTITY_PARACHUTE_FLAP, SoundCategory.BLOCKS, 1.0F, 0.75f + (getRandom().nextFloat() * 0.5f));
+                flapSoundTimer = 1 + getRandom().nextFloat(); // every 1 - 2 seconds
+            }
+            flapSoundTimer -= 1f / 20; // 20 ticks per second
+        } */
 
         this.addVelocity(new Vec3d(0, -0.05f, 0));
         this.move(MovementType.SELF, this.getVelocity());

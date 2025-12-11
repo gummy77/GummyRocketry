@@ -2,7 +2,6 @@ package org.gumrockets.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -11,7 +10,7 @@ import org.gumrockets.component.rocketpartcomponents.EngineComponent;
 import org.gumrockets.component.rocketpartcomponents.FuelComponent;
 import org.gumrockets.component.rocketpartcomponents.PayloadCarrierComponent;
 import org.gumrockets.item.RocketPartBlockItem;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 
 public class RocketPartRegistry {
 
@@ -39,7 +38,7 @@ public class RocketPartRegistry {
                             RocketPart.PartMaterial.WOOD,
                             RocketPart.PartType.ENGINE,
                             6, 50
-                    ).addEngineComponent(new EngineComponent(2500f, 1, ParticleRegistry.EXHAUST)).build());
+                    ).addEngineComponent(new EngineComponent(2500f, 1, ParticleRegistry.EXHAUST, SoundRegistry.ENTITY_SMALL_ROCKET_LAUNCH, SoundRegistry.ENTITY_SMALL_ROCKET_BURN)).build());
 
             // -- COPPER --
 
@@ -63,7 +62,7 @@ public class RocketPartRegistry {
                             RocketPart.PartMaterial.COPPER,
                             RocketPart.PartType.ENGINE,
                             8, 120
-                    ).addEngineComponent(new EngineComponent(5000f, 1, ParticleRegistry.EXHAUST)).build());
+                    ).addEngineComponent(new EngineComponent(5000f, 1, ParticleRegistry.EXHAUST, SoundRegistry.ENTITY_SMALL_ROCKET_LAUNCH, SoundRegistry.ENTITY_SMALL_ROCKET_BURN)).build());
 
             // -- IRON --
 
@@ -87,14 +86,14 @@ public class RocketPartRegistry {
                             RocketPart.PartMaterial.IRON,
                             RocketPart.PartType.ENGINE,
                             14, 215
-                    ).addEngineComponent(new EngineComponent(7500f, 1, ParticleRegistry.EXHAUST)).build());
+                    ).addEngineComponent(new EngineComponent(7500f, 1, ParticleRegistry.EXHAUST, SoundRegistry.ENTITY_SMALL_ROCKET_LAUNCH, SoundRegistry.ENTITY_SMALL_ROCKET_BURN)).build());
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static void registerRocketPart(String path, RocketPart rocketPart) throws CloneNotSupportedException {
-        Identifier identifier = Identifier.of(gumrocketsMain.MOD_ID, path);
+        Identifier identifier = Identifier.of(gumRocketsMain.MOD_ID, path);
 
         // create item settings with default values
         Item.Settings settings = new Item.Settings();

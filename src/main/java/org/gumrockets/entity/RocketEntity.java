@@ -22,6 +22,8 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -30,10 +32,7 @@ import net.minecraft.world.World;
 import org.gumrockets.component.*;
 import org.gumrockets.item.PayloadItem;
 import org.gumrockets.payload.UpdateRocketPayload;
-import org.gumrockets.registry.ComponentRegistry;
-import org.gumrockets.registry.EntityRegistry;
-import org.gumrockets.registry.ItemRegistry;
-import org.gumrockets.registry.ParticleRegistry;
+import org.gumrockets.registry.*;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -92,11 +91,11 @@ public class RocketEntity extends Entity {
                     this.move(MovementType.SELF, new Vec3d(0, 0.1f, 0));
                     this.setVelocity(0, 0.1, 0);
                     setRotation(RotationAxis.POSITIVE_Y.rotation(0));
-                } else {
-                    this.rocket.getState().setLaunchTimer(this.getRocket().getState().getLaunchTimer() - 0.05f); // 20 ticks/second -> 0.05s per tick
+                } else if(this.getRocket().getState().getLaunchTimer() <= 1) {
+                    this.tickStages(true);
                 }
                 this.getRocket().getState().setRotation(this.getRocket().getState().getRotation().rotateLocalX(0.00001f));
-                this.tickStages(true);
+                this.rocket.getState().setLaunchTimer(this.getRocket().getState().getLaunchTimer() - 0.05f); // 20 ticks/second -> 0.05s per tick
             }
             case LAUNCHING -> {
                 this.updateRotation();
@@ -154,7 +153,7 @@ public class RocketEntity extends Entity {
 
         Quaternionf newRotation = new Quaternionf(rotation);
 
-        newRotation.slerp(velocityRotation, 0.1f);
+        newRotation.slerp(velocityRotation, 0.05f);
 
         setRotation(newRotation);
     }
@@ -257,6 +256,7 @@ public class RocketEntity extends Entity {
                             if (!player.isCreative())
                                 player.getInventory().removeStack(player.getInventory().getSlotWithStack(ItemRegistry.FUSE.getDefaultStack()), 1);
                             this.attachFuse(player);
+                            getWorld().playSound(this, getBlockPos(), SoundRegistry.ENTITY_FUSE_ATTACH, SoundCategory.BLOCKS, 1, 1);
                             return ActionResult.success(true);
                         }
                     } else {
@@ -286,6 +286,7 @@ public class RocketEntity extends Entity {
             } else {
                 if (getFuseHolder() == player) {
                     detachFuse(!player.getAbilities().creativeMode);
+                    getWorld().playSound(this, getBlockPos(), SoundRegistry.ENTITY_FUSE_DETACH, SoundCategory.BLOCKS, 1, 1);
                 }
             }
         } else {
@@ -379,7 +380,7 @@ public class RocketEntity extends Entity {
         Vector3f accelerationVector = this.getRocket().getState().getRotation().transformUnit(new Vector3f(0, 1, 0));
         accelerationVector.mul(force / (rocket.getMass()));
         accelerationVector.div(20);
-        accelerationVector.min(new Vector3f(0.2f));
+        accelerationVector.min(new Vector3f(0.15f));
 
         addVelocity(accelerationVector.x, accelerationVector.y, accelerationVector.z);
     }
@@ -397,6 +398,11 @@ public class RocketEntity extends Entity {
             setFuseHolder(entity);
             justAttached = true;
         }
+    }
+
+    public boolean wasJustAttached()
+    {
+        return justAttached;
     }
 
     public void detachFuse(boolean dropItem) {

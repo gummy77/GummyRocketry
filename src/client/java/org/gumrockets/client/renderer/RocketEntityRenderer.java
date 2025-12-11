@@ -7,7 +7,6 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.text.TextColor;
 import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import org.gumrockets.component.*;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.entity.RocketEntity;
 import org.joml.Matrix4f;
 
@@ -249,6 +248,6 @@ public class RocketEntityRenderer extends EntityRenderer<RocketEntity> {
 
     @Override
     public Identifier getTexture(RocketEntity entity) {
-        return Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/rocket.png");
+        return Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/rocket.png");
     }
 }

@@ -12,11 +12,15 @@ import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.gumrockets.component.Rocket;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.component.RocketStage;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.registry.BlockRegistry;
 import org.gumrockets.registry.ComponentRegistry;
 import org.gumrockets.registry.EntityRegistry;
@@ -101,6 +105,8 @@ public class RocketPartBlockEntity extends BlockEntity {
         RocketEntity rocketEntity = new RocketEntity(EntityRegistry.ROCKET_ENTITY, world);
         rocketEntity.setPosition(lowestBlock.toBottomCenterPos());
         rocketEntity.readCustomDataFromNbt(nbt);
+
+        world.playSound(null, lowestBlock, SoundEvent.of(Identifier.of(gumRocketsMain.MOD_ID, "basic_assemble")), SoundCategory.BLOCKS, 1f, 1f);
 
         world.spawnEntity(rocketEntity);
     }

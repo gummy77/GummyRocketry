@@ -3,7 +3,7 @@
   "itemGroup.gumrockets.gumrocketsmodgroup": "Creeper Space Program",
 
   "_comment": "--- Sounds ---",
-  "sound.gumrockets.wooden_rocket_launch": "Rocket Launches",
+  "sound.gumrockets.small_rocket_launch": "Rocket Launches",
   "sound.gumrockets.basic_assemble": "Rocket is Assembled",
 
   "_comment": "--- Death Texts",

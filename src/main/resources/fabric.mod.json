@@ -17,7 +17,7 @@
       "org.gumrockets.client.gumrocketsMainClient"
     ],
     "main": [
-      "org.gumrockets.gumrocketsMain"
+      "org.gumrockets.gumRocketsMain"
     ]
   },
   "depends": {

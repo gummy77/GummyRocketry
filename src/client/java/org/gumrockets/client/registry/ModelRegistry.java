@@ -8,8 +8,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import org.gumrockets.client.model.*;
 import org.gumrockets.client.renderer.PayloadEntityRenderer;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.registry.EntityRegistry;
-import org.gumrockets.gumrocketsMain;
 
 public class ModelRegistry {
     public static final EntityModelLayer EMPTY_PAYLOAD_MODEL_LAYER = registerModel("payload_entity_model", EntityRegistry.PAYLOAD_ENTITY, PayloadEntityRenderer::new);
@@ -28,7 +28,7 @@ public class ModelRegistry {
     }
 
     private static <E extends Entity> EntityModelLayer registerModel(String path, EntityType<E> entityType, EntityRendererFactory<E> rendererFactory) {
-        return new EntityModelLayer(Identifier.of(gumrocketsMain.MOD_ID, path), "main");
+        return new EntityModelLayer(Identifier.of(gumRocketsMain.MOD_ID, path), "main");
     }
 
 }

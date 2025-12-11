@@ -4,7 +4,7 @@
 Time: 2025-11-24 16:57:20
 Description: Initializing game
 
-java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'gumrockets' at 'org.gumrockets.gumrocketsMain'!
+java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'gumrockets' at 'org.gumrockets.gumRocketsMain'!
 	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$0(FabricLoaderImpl.java:409)
 	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
 	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:407)
@@ -18,7 +18,7 @@ java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to err
 Caused by: java.lang.IllegalArgumentException: Packet type Id[id=gumrockets:update_rocket_data_packet] is already registered!
 	at knot//net.fabricmc.fabric.impl.networking.PayloadTypeRegistryImpl.register(PayloadTypeRegistryImpl.java:58)
 	at knot//org.gumrockets.registry.NetworkingConstants.registerPayloads(NetworkingConstants.java:16)
-	at knot//org.gumrockets.gumrocketsMain.onInitialize(gumrocketsMain.java:21)
+	at knot//org.gumrockets.gumRocketsMain.onInitialize(gumrocketsMain.java:21)
 	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:405)
 	... 7 more
 

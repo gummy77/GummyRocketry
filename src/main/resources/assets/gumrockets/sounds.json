@@ -1,14 +1,57 @@
 {
-  "wooden_rocket_launch": {
-    "subtitle": "sound.gumrocket.wooden_rocket_launch",
+  "fuse_burn": {
+    "subtitle": "sound.gumrockets.fuse_burn",
     "sounds": [
-      "gumrocket:wooden_rocket_launch"
+      "gumrockets:fuse_burn"
+    ]
+  },
+  "small_rocket_launch": {
+    "subtitle": "sound.gumrockets.small_rocket_launch",
+    "sounds": [
+      "gumrockets:small_rocket_launch"
+    ]
+  },
+  "small_rocket_burn": {
+    "subtitle": "sound.gumrockets.small_rocket_burn",
+    "sounds": [
+      "gumrockets:small_rocket_burn"
+    ]
+  },
+  "fuse_attach": {
+    "subtitle": "sound.gumrockets.fuse_attach",
+    "sounds": [
+      "gumrockets:fuse_attach"
+    ]
+  },
+  "fuse_detach": {
+    "subtitle": "sound.gumrockets.fuse_detach",
+    "sounds": [
+      "gumrockets:fuse_detach"
+    ]
+  },
+  "parachute_deploy": {
+    "subtitle": "sound.gumrockets.parachute_deploy",
+    "sounds": [
+      "gumrockets:parachute_deploy"
+    ]
+  },
+  "parachute_flap": {
+    "subtitle": "sound.gumrockets.parachute_flap",
+    "sounds": [
+      "gumrockets:parachute_flap"
+    ]
+  },
+  "parachute_land": {
+    "subtitle": "sound.gumrockets.parachute_land",
+    "sounds": [
+      "gumrockets:parachute_land"
     ]
   },
   "basic_assemble": {
-    "subtitle": "sound.gumrocket.basic_assemble",
+    "subtitle": "sound.gumrockets.basic_assemble",
     "sounds": [
-      "gumrocket:basic_assemble"
+      "gumrockets:basic_assemble"
     ]
   }
+
 }

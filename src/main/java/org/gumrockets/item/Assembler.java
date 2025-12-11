@@ -28,7 +28,6 @@ public class Assembler extends Item {
 
         if(blockEntity instanceof RocketPartBlockEntity rocketPartBlockEntity) {
             rocketPartBlockEntity.startAssembly(maxMaterial, context.getBlockPos());
-            context.getWorld().playSound(context.getPlayer(), blockEntity.getPos(), SoundEvents.BLOCK_HEAVY_CORE_PLACE, SoundCategory.BLOCKS);
 
             return ActionResult.SUCCESS;
         }

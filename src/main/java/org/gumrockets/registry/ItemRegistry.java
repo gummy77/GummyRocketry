@@ -2,8 +2,6 @@ package org.gumrockets.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.component.ComponentType;
-import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,7 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.gumrockets.component.PayloadTypes;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.component.RocketPart;
 import org.gumrockets.item.Assembler;
 import org.gumrockets.item.LaunchKit;
@@ -24,7 +22,7 @@ import org.gumrockets.item.RocketInspector;
 
 public class ItemRegistry {
 
-    public static final RegistryKey<ItemGroup> CSP_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(gumrocketsMain.MOD_ID, "item_group"));
+    public static final RegistryKey<ItemGroup> CSP_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(gumRocketsMain.MOD_ID, "item_group"));
     public static final ItemGroup CSP_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(Items.FIREWORK_ROCKET))
             .displayName(Text.translatable("itemGroup.gumrockets.gumrocketsmodgroup"))
@@ -32,7 +30,7 @@ public class ItemRegistry {
 
     // Tools
     public static final Assembler BASIC_ASSEMBLER = (Assembler) register("basic_assembler", new Assembler(new Item.Settings(), RocketPart.PartMaterial.IRON));
-    public static final LaunchKit BASIC_LAUNCH_KIT = (LaunchKit) register("basic_launch_kit", new LaunchKit(new Item.Settings()));
+    public static final LaunchKit BASIC_LAUNCH_KIT = (LaunchKit) register("basic_launch_kit", new LaunchKit(new Item.Settings(), LaunchKit.LaunchKitLevel.BASIC));
     public static final Item PAYLOAD_COMPASS = register("payload_compass", new Item(new Item.Settings()));
     public static final Item ROCKET_INSPECTOR = register("rocket_inspector", new RocketInspector(new Item.Settings().maxCount(1)));
 
@@ -65,11 +63,11 @@ public class ItemRegistry {
             itemGroup.add(STARDUST_CATCHER);
 
         });
-        gumrocketsMain.LOGGER.debug("Registering items complete");
+        gumRocketsMain.LOGGER.debug("Registering items complete");
     }
 
     public static Item register (String path, Item item) {
-        Identifier itemID = Identifier.of(gumrocketsMain.MOD_ID, path);
+        Identifier itemID = Identifier.of(gumRocketsMain.MOD_ID, path);
         return Registry.register(Registries.ITEM, itemID, item);
     }
 }

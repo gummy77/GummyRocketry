@@ -6,9 +6,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.gumrockets.component.PayloadCompassComponent;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.component.RocketPart;
-import org.gumrockets.item.PayloadCompass;
 
 public class ComponentRegistry {
 
@@ -17,11 +16,11 @@ public class ComponentRegistry {
     public static final ComponentType<PayloadCompassComponent> PAYLOAD_COMPASS_COMPONENT_COMPONENT_TYPE = registerComponent("payload_compass", PayloadCompassComponent.CODEC);
 
     public static void initializeRegistry() {
-        gumrocketsMain.LOGGER.debug("Registering components complete");
+        gumRocketsMain.LOGGER.debug("Registering components complete");
     }
 
     public static <T> ComponentType<T> registerComponent(String path, Codec<T> codec) {
-        Identifier componentID = Identifier.of(gumrocketsMain.MOD_ID, path);
+        Identifier componentID = Identifier.of(gumRocketsMain.MOD_ID, path);
         return Registry.register(
                 Registries.DATA_COMPONENT_TYPE,
                 componentID,

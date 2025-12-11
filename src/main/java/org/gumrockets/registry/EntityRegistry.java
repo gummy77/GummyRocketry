@@ -8,7 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.entity.*;
 
 public class EntityRegistry {
@@ -25,7 +25,7 @@ public class EntityRegistry {
     protected static <T extends Entity> EntityType<T> registerEntity(String path, EntityType.EntityFactory<T> type, EntitySettings settings) {
         EntityType<T> entityType = Registry.register(
                 Registries.ENTITY_TYPE,
-                Identifier.of(gumrocketsMain.MOD_ID, path),
+                Identifier.of(gumRocketsMain.MOD_ID, path),
                 FabricEntityTypeBuilder.create(settings.spawnGroup, type)
                         .dimensions(EntityDimensions.fixed(settings.x, settings.y))
                         .build());

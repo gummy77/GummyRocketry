@@ -7,7 +7,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.gumrockets.block.RocketPartBlock;
 import org.gumrockets.entity.RocketPartBlockEntity;
 
@@ -46,12 +46,12 @@ public class BlockRegistry {
     }
 
     private static Block register(String path, Block block){
-        Identifier blockID = Identifier.of(gumrocketsMain.MOD_ID, path);
+        Identifier blockID = Identifier.of(gumRocketsMain.MOD_ID, path);
         return Registry.register(Registries.BLOCK, blockID, block);
     }
 
     public static <T extends BlockEntityType<?>> T registerEntity (String path, T type) {
-        Identifier blockEntityID = Identifier.of(gumrocketsMain.MOD_ID, path);
+        Identifier blockEntityID = Identifier.of(gumRocketsMain.MOD_ID, path);
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, blockEntityID, type);
     }
 }

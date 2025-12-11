@@ -27,13 +27,14 @@ public class RocketPartBlock extends BlockWithEntity {
 
         if (blockEntity instanceof RocketPartBlockEntity rocketPartBlockEntity) {
             RocketPart rocketPart = rocketPartBlockEntity.getRocketPart();
+            if(rocketPart != null) {
+                float edgeWidth = (16f - rocketPart.getWidth()) / 2f;
 
-            float edgeWidth = (16f - rocketPart.getWidth()) / 2f;
+                float startWidth = edgeWidth / 16f;
+                float endWidth = (16f - edgeWidth) / 16f;
 
-            float startWidth = edgeWidth / 16f;
-            float endWidth = (16f - edgeWidth) / 16f;
-
-            return VoxelShapes.cuboid(startWidth, 0f, startWidth, endWidth, 1f, endWidth);
+                return VoxelShapes.cuboid(startWidth, 0f, startWidth, endWidth, 1f, endWidth);
+            }
         }
         return VoxelShapes.cuboid(0.25f, 0f, 0.25f, 0.75f, 1f, 0.75f);
     }

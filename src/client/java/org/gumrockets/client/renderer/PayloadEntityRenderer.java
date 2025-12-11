@@ -11,7 +11,7 @@ import org.gumrockets.client.model.PayloadEntityModel;
 import org.gumrockets.client.registry.ModelRegistry;
 import org.gumrockets.component.PayloadTypes;
 import org.gumrockets.entity.PayloadEntity;
-import org.gumrockets.gumrocketsMain;
+import org.gumrockets.gumRocketsMain;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
@@ -79,7 +79,7 @@ public class PayloadEntityRenderer extends EntityRenderer<PayloadEntity> {
                 matrices.translate(0, -0.75f, 1.5f);
 
                 modelLoader.getModelPart(ModelRegistry.FALLEN_PARACHUTE_MODEL_LAYER).render(matrices,
-                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/fallen_parachute_texture.png"))),
+                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/fallen_parachute_texture.png"))),
                         light, OverlayTexture.DEFAULT_UV);
             } else if(entity.getLandTime() > 75) {
                 matrices.translate(0, 0.55f, 0);
@@ -88,7 +88,7 @@ public class PayloadEntityRenderer extends EntityRenderer<PayloadEntity> {
                 matrices.multiply(new Quaternionf(1, 0, 0, 0));
                 matrices.scale(0.5f * scale, 0.5f * scale, 0.5f * scale);
                 modelLoader.getModelPart(ModelRegistry.UNDEPLOYED_PARACHUTE_MODEL_LAYER).render(matrices,
-                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
+                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
                         light, OverlayTexture.DEFAULT_UV);
             } else {
                 matrices.translate(0, 0.55f, 0);
@@ -97,7 +97,7 @@ public class PayloadEntityRenderer extends EntityRenderer<PayloadEntity> {
                 matrices.multiply(new Quaternionf(1, 0, 0, 0));
                 matrices.scale(0.5f * scale, 0.5f * scale, 0.5f * scale);
                 modelLoader.getModelPart(ModelRegistry.DEPLOYED_PARACHUTE_MODEL_LAYER).render(matrices,
-                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
+                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
                         light, OverlayTexture.DEFAULT_UV);
             }
         } else {
@@ -106,14 +106,14 @@ public class PayloadEntityRenderer extends EntityRenderer<PayloadEntity> {
                 matrices.multiply(new Quaternionf(1, 0, 0, 0));
                 matrices.scale(0.5f * scale, 0.5f * scale, 0.5f * scale);
                 modelLoader.getModelPart(ModelRegistry.DEPLOYED_PARACHUTE_MODEL_LAYER).render(matrices,
-                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
+                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
                         light, OverlayTexture.DEFAULT_UV);
             } else {
                 matrices.translate(0, 1.75f, 0);
                 matrices.multiply(new Quaternionf(1, 0, 0, 0));
                 matrices.scale(0.5f * scale, 0.5f * scale, 0.5f * scale);
                 modelLoader.getModelPart(ModelRegistry.UNDEPLOYED_PARACHUTE_MODEL_LAYER).render(matrices,
-                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
+                        vertexConsumers.getBuffer(RenderLayer.getEntitySolid(Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/parachute_texture.png"))),
                         light, OverlayTexture.DEFAULT_UV);
             }
         }
@@ -124,12 +124,12 @@ public class PayloadEntityRenderer extends EntityRenderer<PayloadEntity> {
     public Identifier getTexture(PayloadEntity entity) {
         switch (payloadType) {
             case EMPTY -> {
-                return Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/payload_entity_texture.png");
+                return Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/payload_entity_texture.png");
             }
             case STARDUST_CATCHER -> {
-                return Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/stardust_catcher_payload_entity_texture.png");
+                return Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/stardust_catcher_payload_entity_texture.png");
             }
         }
-        return Identifier.of(gumrocketsMain.MOD_ID, "textures/entity/payload_entity_texture.png");
+        return Identifier.of(gumRocketsMain.MOD_ID, "textures/entity/payload_entity_texture.png");
     }
 }
