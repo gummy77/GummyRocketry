@@ -35,16 +35,16 @@
       "gumrockets:parachute_deploy"
     ]
   },
-  "parachute_flap": {
-    "subtitle": "sound.gumrockets.parachute_flap",
-    "sounds": [
-      "gumrockets:parachute_flap"
-    ]
-  },
   "parachute_land": {
     "subtitle": "sound.gumrockets.parachute_land",
     "sounds": [
       "gumrockets:parachute_land"
+    ]
+  },
+  "payload_attach": {
+    "subtitle": "sound.gumrockets.payload_attach",
+    "sounds": [
+      "gumrockets:payload_attach"
     ]
   },
   "basic_assemble": {

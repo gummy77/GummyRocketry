@@ -4,16 +4,14 @@ import com.google.common.base.Predicates;
 import com.mojang.serialization.DataResult;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MovementType;
-import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageEffects;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -274,12 +272,7 @@ public class RocketEntity extends Entity {
                         }
                         rocket.setPayloadType(payloadItem.getPayloadType());
 
-                        for(int i = 0; i < 10; i ++){
-                            getWorld().addImportantParticle(ParticleTypes.HAPPY_VILLAGER, true,
-                                    getPos().x, getPos().y + rocket.getHeight(), getPos().z,
-                                    0, 0, 0
-                            );
-                        }
+                        getWorld().playSound(this, this.getBlockPos().add(0, (int) rocket.getHeight(), 0), SoundRegistry.ENTITY_PAYLOAD_ATTACH, SoundCategory.BLOCKS, 1, 1);
                         return ActionResult.success(true);
                     }
                 }
@@ -340,8 +333,7 @@ public class RocketEntity extends Entity {
     @Override
     public boolean handleAttack(Entity attacker) {
         if(attacker instanceof PlayerEntity) {
-            destroy(!((PlayerEntity) attacker).isCreative());
-            return true;
+            return false;
         }
         return super.handleAttack(attacker);
     }
@@ -358,22 +350,37 @@ public class RocketEntity extends Entity {
             );
             this.kill();
         } else {
-            destroy( true);
+            destroy(!source.isSourceCreativePlayer());
         }
         return super.damage(source, amount);
     }
 
+    @Override
+    public boolean canBeHitByProjectile() {
+        return true;
+    }
+
+    @Override
+    public ProjectileDeflection getProjectileDeflection(ProjectileEntity projectile) {
+        return ProjectileDeflection.NONE;
+    }
+
     private void destroy(boolean doesDrop) {
-        this.kill();
-        if(doesDrop && getRocket() != null) {
+        if(getRocket() != null) {
             float currentHeight = 0;
             for (RocketStage stage : getRocket().getStages()) {
                 for (RocketPart part : stage.getParts()) {
-                    dropStack(part.getBlock().getBlock().asItem().getDefaultStack(), (float) part.getOffset().getY() + currentHeight);
+                    if(doesDrop) {
+                        dropStack(part.getBlock().getBlock().asItem().getDefaultStack(), (float) part.getOffset().getY() + currentHeight);
+                    }
+                    BlockPos particlePos = getBlockPos().add(0, (int) (part.getOffset().getY() + currentHeight), 0);
+                    getWorld().playSound(this, particlePos, part.getBlock().getSoundGroup().getBreakSound(), SoundCategory.BLOCKS, 1, 1);
+                    getEntityWorld().addBlockBreakParticles(particlePos, part.getBlock());
                 }
                 currentHeight += stage.getHeight();
             }
         }
+        this.kill();
     }
 
     public void addForce(float force) {
@@ -387,7 +394,7 @@ public class RocketEntity extends Entity {
 
     private void updateFuse() {
         if (getFuseHolder() != null) {
-            if (!this.isAlive() || !this.getFuseHolder().isAlive()) {
+            if (!this.isAlive() || !this.getFuseHolder().isAlive() || getFuseHolder().distanceTo(this) > 40f) {
                 this.detachFuse(true);
             }
         }

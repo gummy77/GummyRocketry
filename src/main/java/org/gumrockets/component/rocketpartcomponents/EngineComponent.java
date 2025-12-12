@@ -78,12 +78,12 @@ public class EngineComponent {
 
         if (isIgnition) {
             if (!hasPlayedIgnitionSound) {
-                world.playSound(rocket, rocket.getBlockPos(), ignitionSound, SoundCategory.BLOCKS, 10, 1);
+                world.playSound(rocket, rocket.getBlockPos(), ignitionSound, SoundCategory.BLOCKS, 0.5f, 1);
                 hasPlayedIgnitionSound = true;
             }
         } else {
             if(burnSoundTimer <= 0) {
-                world.playSound(rocket, rocket.getBlockPos(), burnSound, SoundCategory.BLOCKS, 10, 1);
+                world.playSound(rocket, rocket.getBlockPos(), burnSound, SoundCategory.BLOCKS, 0.5f, 1);
                 burnSoundTimer = 10; // 20 ticks a second, audio plays every 0.5 seconds.
             }
             burnSoundTimer -= 1;

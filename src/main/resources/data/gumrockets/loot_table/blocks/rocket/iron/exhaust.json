@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gumrockets:rocket/iron/exhaust"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "source": "block_entity",
+      "include": [
+        "gumrockets:rocket_part"
+      ],
+      "function": "minecraft:copy_components"
+    }
+  ]
+}

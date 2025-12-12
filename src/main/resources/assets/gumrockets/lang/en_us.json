@@ -3,8 +3,14 @@
   "itemGroup.gumrockets.gumrocketsmodgroup": "Creeper Space Program",
 
   "_comment": "--- Sounds ---",
+  "sound.gumrockets.fuse_burn" : "Fuse Ignites",
   "sound.gumrockets.small_rocket_launch": "Rocket Launches",
+  "sound.gumrockets.small_rocket_burn" : "Rocket Burns",
+  "sound.gumrockets.parachute_deploy" : "Parachute Deploys",
+  "sound.gumrockets.parachute_land" : "Parachute Lands",
+  "sound.gumrockets.payload_attach" : "Payload is Attached",
   "sound.gumrockets.basic_assemble": "Rocket is Assembled",
+
 
   "_comment": "--- Death Texts",
   "death.attack.drown_in_oil": "%1$s drowned in oil",

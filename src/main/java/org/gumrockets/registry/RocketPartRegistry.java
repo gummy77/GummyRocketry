@@ -98,7 +98,6 @@ public class RocketPartRegistry {
         // create item settings with default values
         Item.Settings settings = new Item.Settings();
         settings.component(ComponentRegistry.ROCKET_PART_COMPONENT_TYPE, rocketPart.clone());
-
         // register item
         Item item = Registry.register(Registries.ITEM, identifier, new RocketPartBlockItem(rocketPart.getBlock().getBlock(), settings));
 

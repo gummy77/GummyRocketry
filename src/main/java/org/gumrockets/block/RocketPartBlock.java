@@ -13,7 +13,10 @@ import org.jetbrains.annotations.Nullable;
 
 public class RocketPartBlock extends BlockWithEntity {
     public RocketPartBlock(Settings settings) {
+        settings.strength(2);
+        settings.requiresTool();
         super(settings);
+
     }
 
     @Override

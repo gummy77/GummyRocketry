@@ -48,7 +48,7 @@ public class LaunchKit extends Item {
 
     private TypedActionResult<ItemStack> startLaunch(PlayerEntity player, World world, Hand hand) {
 
-        List<RocketEntity> entityList = world.getEntitiesByClass(RocketEntity.class, Box.of(player.getPos(), 25, 25, 25), Predicates.notNull());
+        List<RocketEntity> entityList = world.getEntitiesByClass(RocketEntity.class, Box.of(player.getPos(), 40, 40, 40), Predicates.notNull());
 
         for (RocketEntity rocketEntity : entityList) {
             if (rocketEntity.getFuseHolder() == player && !rocketEntity.wasJustAttached()) {

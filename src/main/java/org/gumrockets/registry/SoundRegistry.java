@@ -8,14 +8,16 @@ import org.gumrockets.gumRocketsMain;
 
 public class SoundRegistry {
 
-    public static SoundEvent ENTITY_FUSE_BURN; // NOT DONE
-    public static SoundEvent ENTITY_SMALL_ROCKET_LAUNCH; // NOT DONE
-    public static SoundEvent ENTITY_SMALL_ROCKET_BURN; // NOT DONE
+    public static SoundEvent ENTITY_FUSE_BURN;
+    public static SoundEvent ENTITY_SMALL_ROCKET_LAUNCH;
+    public static SoundEvent ENTITY_SMALL_ROCKET_BURN;
     public static SoundEvent ENTITY_FUSE_ATTACH; // NOT DONE
     public static SoundEvent ENTITY_FUSE_DETACH; // NOT DONE
-    public static SoundEvent ENTITY_PARACHUTE_DEPLOY; // NOT DONE
+    public static SoundEvent ENTITY_PARACHUTE_DEPLOY;
     public static SoundEvent ENTITY_PARACHUTE_FLAP; // NOT DONE
-    public static SoundEvent ENTITY_PARACHUTE_LAND; // NOT DONE
+    public static SoundEvent ENTITY_PARACHUTE_LAND;
+
+    public static SoundEvent ENTITY_PAYLOAD_ATTACH;
 
     public static SoundEvent ITEM_BASIC_ASSEMBLE;
 
@@ -37,6 +39,7 @@ public class SoundRegistry {
         ENTITY_PARACHUTE_DEPLOY = registerSound("parachute_deploy");
         ENTITY_PARACHUTE_FLAP = registerSound("parachute_flap");
         ENTITY_PARACHUTE_LAND = registerSound("parachute_land");
+        ENTITY_PAYLOAD_ATTACH = registerSound("payload_attach");
 
         ITEM_BASIC_ASSEMBLE = registerSound("basic_assemble");
 

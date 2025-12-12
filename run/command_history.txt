@@ -1,31 +1,3 @@
-/kill @e[]
-/weather clear
-/gamerule doWeatherCycle false
-/time set 1200
-/gamemode survival
-/gamemode creative
-/gamemode s
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/gamemode sur
-/gamemode survival
-/gamemode creative
-/summon gumrockets:payload_entity
-/gamemode survival
-/gamemode creative
-/gamemode survival
-/gamemode creative
-/tp @a 0 0 0
-/summon gumrockets:payload_entity
-/summon gumrockets:payload_entity ~ 0 ~
-/summon gumrockets:payload_entity ~ 100 ~
-/summon gumrockets:payload_entity ~ -20 ~
-/summon gumrockets:payload_entity ~ -40 ~
-/summon gumrockets:payload_entity ~ -80 ~
 /summon gumrockets:payload_entity ~ -60 ~
 /summon gumrockets:payload_entity ~ -50 ~
 /summon gumrockets:payload_entity ~ -55 ~
@@ -36,3 +8,43 @@
 /summon gumrockets:payload_entity
 /summon gumrockets:payload_entity ~ 0 ~
 /summon gumrockets:payload_entity ~ -20 ~
+/summon gumrockets:payload_entity ~ -30 ~
+/summon gumrockets:payload_entity ~ -60 ~
+/summon gumrockets:payload_entity ~ -55 ~
+/gamemode survival
+/summon gumrockets:payload_entity ~ -55 ~
+/gamemode creative
+/summon gumrockets:payload_entity ~ -55 ~
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/tp Player138 Player514
+/summon gumrockets:payload_entity ~ -20 ~
+/summon gumrockets:payload_entity ~ -40 ~
+/gamemode survival
+/gamemode creative
+/summon gumrockets:payload_entity ~ -40 ~
+/summon gumrockets:payload_entity ~ -50 ~
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
+/gamemode survival
+/gamemode creative
